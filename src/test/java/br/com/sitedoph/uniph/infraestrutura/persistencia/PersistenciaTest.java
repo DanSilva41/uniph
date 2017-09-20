@@ -14,7 +14,7 @@ import br.com.sitedoph.uniph.dominio.entidade.Aluno;
 
 public class PersistenciaTest {
 
-	@Test
+	//@Test
 	public void deveCriarOEntityManagerFactoryEEntityManager() {
 
 		try {
@@ -58,6 +58,5 @@ public class PersistenciaTest {
 		}
 
 		em.close();
-
 	}
 }
