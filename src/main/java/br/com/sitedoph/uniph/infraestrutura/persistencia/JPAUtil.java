@@ -6,11 +6,11 @@ import javax.persistence.Persistence;
 
 public class JPAUtil {
 	
-	//Criação de um EntityManagerFactory somente um vez;
+	//CriaÃ§Ã£o de um EntityManagerFactory somente um vez;
 	private static EntityManagerFactory emf =
 					Persistence.createEntityManagerFactory("uniph");
 	
-	//Método a ser invocado
+	//MÃ©todo a ser invocado
 	public static EntityManager getEntityManager(){
 		return emf.createEntityManager();
 	}

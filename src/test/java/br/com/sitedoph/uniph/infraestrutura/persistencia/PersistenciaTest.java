@@ -31,7 +31,7 @@ public class PersistenciaTest {
 	@Test
 	public void devePersistirUmAluno() {
 
-		// Retorna um instância de EntityManager
+		// Retorna um instÃ¢ncia de EntityManager
 		EntityManager em = JPAUtil.getEntityManager();
 
 		Aluno dan = new Aluno();

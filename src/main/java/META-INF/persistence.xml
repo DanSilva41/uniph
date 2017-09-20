@@ -5,19 +5,17 @@
 
 	<persistence-unit name="uniph">
 		<properties>
-			<!--****************** H2 ****************** -->
-			<property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
-			<property name="javax.persistence.jdbc.url"
-				value="jdbc:h2:file:~/uniPHdb;DB_CLOSE_DELAY=-1;MVCC=TRUE;AUTO_SERVER=TRUE" />
-			<property name="javax.persistence.jdbc.user" value="sa" />
-			<property name="javax.persistence.jdbc.password" value="" />
+			<!-- **** MYSQL **** -->
+			<property name="javax.persistence.driver" value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/uniphDB" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password" value="Silva@41" />
 
 			<!-- ****************** Outras configurações ****************** -->
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<!-- Exibição e formatação do SQL no log -->
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />
-
 
 			<property name="hibernate.use_sql_comments" value="true" />
 			<property name="hibernate.jdbc.wrap_result_sets" value="true" />

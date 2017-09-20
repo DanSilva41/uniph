@@ -21,11 +21,11 @@
 			<version>5.2.9.Final</version>
 		</dependency>
 
-		<!-- H2 database -->
+		<!-- Mysql 5.1.6 -->
 		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<version>1.4.194</version>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.6</version>
 		</dependency>
 
 		<!-- Testes - Junit -->
