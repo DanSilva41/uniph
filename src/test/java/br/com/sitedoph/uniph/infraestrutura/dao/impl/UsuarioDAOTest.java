@@ -14,7 +14,7 @@ public class UsuarioDAOTest {
 	private static final String SENHA = "123456";
 	private static final String MARQUINHOS = "Marquinhos";
 	
-	@Test
+	// @Test
 	public void deveSalvar(){
 		
 		EntityManager em = JPAUtil.getEntityManager();

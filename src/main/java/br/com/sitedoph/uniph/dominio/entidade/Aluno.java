@@ -3,6 +3,8 @@ package br.com.sitedoph.uniph.dominio.entidade;
 import java.util.Calendar;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -29,6 +31,9 @@ public class Aluno {
 
 	private String telefone;
 	private String email;
+	
+	@Enumerated(EnumType.ORDINAL)
+	private Sexo sexo;
 
 	public Long getId() {
 		return id;
@@ -92,5 +97,26 @@ public class Aluno {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public Sexo getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(Sexo sexo) {
+		this.sexo = sexo;
+	}
+	
+	@Override
+	public String toString(){
+		return "[ALUNO]:" + (id != null ? "\nID = " + id + ";" : "") +
+				(nomeCompleto != null ? "\nNome = " + nomeCompleto + ";" : "") +
+				(rg != null ? "\nRG = " + rg + ";" : "") +
+				(cpf != null ? "\nCPF = " + cpf + ";" : "") +
+				(dataDeNascimento != null ? "\nDt de Nascimento = " + dataDeNascimento + ";" : "") +
+				(dataDeCadastro != null ? "\nDt de Cadastro = " + dataDeCadastro + ";" : "") +
+				(telefone != null ? "\nTelefone = " + telefone + ";" : "") +
+				(email != null ? "\nE-mail = " + email + ";" : "") +
+				(sexo != null ? "\nSexo = " + sexo.getDescricao() + ";" : "");
 	}
 }
