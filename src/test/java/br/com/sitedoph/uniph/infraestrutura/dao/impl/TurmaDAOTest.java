@@ -11,7 +11,7 @@ public class TurmaDAOTest {
 
 	private final String DESCRICAO = "No máximo 20 alunos";
 
-	@Test
+	//d@Test
 	public void deveFazerCRUD() {
 
 		EntityManager em = JPAUtil.getEntityManager();
