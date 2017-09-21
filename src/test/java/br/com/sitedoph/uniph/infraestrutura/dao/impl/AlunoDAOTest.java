@@ -5,8 +5,6 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import org.junit.Test;
-
 import br.com.sitedoph.uniph.dominio.entidade.Aluno;
 import br.com.sitedoph.uniph.dominio.entidade.Sexo;
 import br.com.sitedoph.uniph.infraestrutura.persistencia.JPAUtil;
@@ -15,7 +13,7 @@ public class AlunoDAOTest {
 	
 	private static final String CPF = "999.999.999-99";
 	
-	@Test
+	//@Test
 	public void deveFazerCRUDDeAluno(){
 		
 		EntityManager em = JPAUtil.getEntityManager();

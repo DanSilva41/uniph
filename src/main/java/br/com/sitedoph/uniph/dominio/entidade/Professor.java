@@ -84,5 +84,16 @@ public class Professor {
 	public void setCurriculo(String curriculo) {
 		this.curriculo = curriculo;
 	}
+	
+	@Override
+	public String toString(){
+		return "[PROFESSOR]:" + (id != null ? "\nID = " + id + ";" : "") +
+				(nomeCompleto != null ? "\nNome = " + nomeCompleto + ";" : "") +
+				(cpf != null ? "\nCPF = " + cpf + ";" : "") +
+				(dataCadastro != null ? "\nDt Cadastro = " + dataCadastro + ";" : "") +
+				(telefone != null ? "\nTelefone = " + telefone + ";" : "") +
+				(email != null ? "\nE-mail = " + email + ";" : "") +
+				(curriculo != null ? "\nCurrículo = " + curriculo + ";" : "");
+	}
 }
 

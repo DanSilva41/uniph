@@ -51,6 +51,14 @@ public class Disciplina {
 	public void setCargaHoraria(String cargaHoraria) {
 		this.cargaHoraria = cargaHoraria;
 	}
+	
+	@Override
+	public String toString(){
+		return "[DISCIPLINADA]:" + (id != null ? "\nID = " + id + ";" : "") +
+				(descricao != null ? "\nDescrição = " + descricao + ";" : "") +
+				(professor != null ? "\nProfessor = " + professor + ";" : "") +
+				(cargaHoraria != null ? "\nCarga Horária = " + cargaHoraria + ";" : "");
+	}
 
 }
 

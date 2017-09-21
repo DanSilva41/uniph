@@ -36,7 +36,7 @@ public class UsuarioDAO {
 		}
 	}
 
-	public List buscarTodos() {
+	public List<Usuario> buscarTodos() {
 		return DAO.buscarTodos();
 	}
 
