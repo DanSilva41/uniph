@@ -54,7 +54,7 @@ public class Disciplina {
 	
 	@Override
 	public String toString(){
-		return "[DISCIPLINADA]:" + (id != null ? "\nID = " + id + ";" : "") +
+		return "[DISCIPLINA]:" + (id != null ? "\nID = " + id + ";" : "") +
 				(descricao != null ? "\nDescrição = " + descricao + ";" : "") +
 				(professor != null ? "\nProfessor = " + professor + ";" : "") +
 				(cargaHoraria != null ? "\nCarga Horária = " + cargaHoraria + ";" : "");

@@ -18,7 +18,7 @@ public class Turma {
 	@ManyToMany
 	private List<Aluno> alunos;
 	@ManyToMany
-	private List<Disciplina> disciplina;
+	private List<Disciplina> disciplinas;
 
 	public Integer getId() {
 		return id;
@@ -60,11 +60,21 @@ public class Turma {
 		this.alunos = alunos;
 	}
 
-	public List<Disciplina> getDisciplina() {
-		return disciplina;
+	public List<Disciplina> getDisciplinas() {
+		return disciplinas;
 	}
 
-	public void setDisciplina(List<Disciplina> disciplina) {
-		this.disciplina = disciplina;
+	public void setDisciplinas(List<Disciplina> disciplinas) {
+		this.disciplinas = disciplinas;
+	}
+	
+	@Override
+	public String toString(){
+		return "[TURMA]:" + (id != null ? "\nID = " + id + ";" : "") +
+				(descricao != null ? "\nDescrição = " + descricao + ";" : "") +
+				(diasDaSemana != null ? "\nDIas da semanda = " + diasDaSemana + ";" : "") +
+				(horario != null ? "\nHorário = " + horario+ ";" : "") +
+				(alunos != null ? "\nAlunos = " + alunos + ";" : "") +
+				(disciplinas != null ? "\nDisciplinas = " + disciplinas + ";" : "");
 	}
 }

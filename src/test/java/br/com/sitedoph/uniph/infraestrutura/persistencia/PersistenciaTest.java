@@ -8,8 +8,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import org.junit.Test;
-
 import br.com.sitedoph.uniph.dominio.entidade.Aluno;
 
 public class PersistenciaTest {

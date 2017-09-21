@@ -2,8 +2,6 @@ package br.com.sitedoph.uniph.infraestrutura.dao.impl;
 
 import javax.persistence.EntityManager;
 
-import org.junit.Test;
-
 import br.com.sitedoph.uniph.dominio.entidade.Turma;
 import br.com.sitedoph.uniph.infraestrutura.persistencia.JPAUtil;
 
@@ -11,7 +9,7 @@ public class TurmaDAOTest {
 
 	private final String DESCRICAO = "No máximo 20 alunos";
 
-	//d@Test
+	//@Test
 	public void deveFazerCRUD() {
 
 		EntityManager em = JPAUtil.getEntityManager();

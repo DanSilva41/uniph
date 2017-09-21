@@ -4,8 +4,6 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import org.junit.Test;
-
 import br.com.sitedoph.uniph.dominio.entidade.Usuario;
 import br.com.sitedoph.uniph.infraestrutura.persistencia.JPAUtil;
 
@@ -54,6 +52,8 @@ public class UsuarioDAOTest {
 		for (Usuario usuario : buscarTodos) {
 			System.out.println(usuario);
 		}
+		
+		em.close();
 	}
 
 }
