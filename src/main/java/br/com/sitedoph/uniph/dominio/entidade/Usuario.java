@@ -10,6 +10,9 @@ public class Usuario {
 	@GeneratedValue
 	private Long id;
 	private String nomeCompleto;
+	
+	@Column(unique = true)
+	private String email;
 	private String login;
 	private String senha;
 
@@ -29,6 +32,14 @@ public class Usuario {
 		this.nomeCompleto = nomeCompleto;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public String getLogin() {
 		return login;
 	}
@@ -43,6 +54,15 @@ public class Usuario {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	
+	@Override
+	public String toString(){
+		return "[USUARIO]:" + (id != null ? "\nID = " + id + ";" : "") +
+				(nomeCompleto != null ? "\nNome = " + nomeCompleto + ";" : "") +
+				(email != null ? "\nE-mail = " + email + ";" : "") +
+				(login != null ? "\nLogin = " + login + ";" : "") +
+				(senha != null ? "\nSenha = " + senha + ";" : "");
 	}
 }
 

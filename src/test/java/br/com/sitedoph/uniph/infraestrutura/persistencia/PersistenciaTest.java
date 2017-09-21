@@ -28,7 +28,7 @@ public class PersistenciaTest {
 		}
 	}
 
-	@Test
+	//@Test
 	public void devePersistirUmAluno() {
 
 		// Retorna um instância de EntityManager
