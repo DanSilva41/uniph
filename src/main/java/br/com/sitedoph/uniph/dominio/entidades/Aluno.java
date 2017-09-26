@@ -3,6 +3,8 @@ package br.com.sitedoph.uniph.dominio.entidades;
 import java.util.Calendar;
 import javax.persistence.*;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.br.CPF;
 
 @Entity
@@ -13,10 +15,13 @@ public class Aluno {
 	@GeneratedValue
 	private Long id;
 
+	@NotBlank(message = "Preencha o nome completo!")
 	private String nomeCompleto;
+
 	private String rg;
 
 	@CPF(message = "CPF inváĺido")
+	@NotBlank(message = "Preencha o CPF!")
 	private String cpf;
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -26,6 +31,9 @@ public class Aluno {
 	private Calendar dataDeCadastro;
 
 	private String telefone;
+
+	@NotBlank(message = "Preenche o e-mail!")
+	@Email(message = "Endereço de e-mail inválido")
 	private String email;
 
 	@Enumerated(EnumType.ORDINAL)

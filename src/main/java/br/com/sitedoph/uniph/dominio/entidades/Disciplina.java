@@ -6,6 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 @Table(name = "TB_DISCIPLINA")
 public class Disciplina {
@@ -13,6 +15,8 @@ public class Disciplina {
 	@Id
 	@GeneratedValue
 	private Long id;
+	
+	@NotEmpty(message = "Preencha a descrição!")
 	private String descricao;
 	
 	@ManyToOne

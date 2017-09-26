@@ -11,6 +11,7 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "TB_TURMA")
@@ -19,7 +20,10 @@ public class Turma {
 	@Id
 	@GeneratedValue
 	private Integer id;
+	
+	@NotEmpty(message = "Preencha a descrição!")
 	private String descricao;
+	
 	private String diasDaSemana;
 	private String horario;
 	

@@ -9,7 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.br.CPF;
 
 @Entity
 @Table(name = "TB_PROFESSOR")
@@ -18,14 +22,23 @@ public class Professor {
 	@Id
 	@GeneratedValue
 	private Long id;
+
+	@NotEmpty(message = "Preencha o nome completo!")
+	@Size(min = 5)
 	private String nomeCompleto;
+
+	@CPF(message = "CPF inválido")
 	private String cpf;
+
 	private String telefone;
+
+	@NotEmpty(message = "Preencha o e-mail!")
+	@Email(message = "Endereço de e-mail inválido")
 	private String email;
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar dataCadastro;
-	
+
 	@Column(length = 5000)
 	private String curriculo;
 
@@ -84,16 +97,15 @@ public class Professor {
 	public void setCurriculo(String curriculo) {
 		this.curriculo = curriculo;
 	}
-	
+
 	@Override
-	public String toString(){
-		return "[PROFESSOR]:" + (id != null ? "\nID = " + id + ";" : "") +
-				(nomeCompleto != null ? "\nNome = " + nomeCompleto + ";" : "") +
-				(cpf != null ? "\nCPF = " + cpf + ";" : "") +
-				(dataCadastro != null ? "\nDt Cadastro = " + dataCadastro + ";" : "") +
-				(telefone != null ? "\nTelefone = " + telefone + ";" : "") +
-				(email != null ? "\nE-mail = " + email + ";" : "") +
-				(curriculo != null ? "\nCurrículo = " + curriculo + ";" : "");
+	public String toString() {
+		return "[PROFESSOR]:" + (id != null ? "\nID = " + id + ";" : "")
+				+ (nomeCompleto != null ? "\nNome = " + nomeCompleto + ";" : "")
+				+ (cpf != null ? "\nCPF = " + cpf + ";" : "")
+				+ (dataCadastro != null ? "\nDt Cadastro = " + dataCadastro + ";" : "")
+				+ (telefone != null ? "\nTelefone = " + telefone + ";" : "")
+				+ (email != null ? "\nE-mail = " + email + ";" : "")
+				+ (curriculo != null ? "\nCurrículo = " + curriculo + ";" : "");
 	}
 }
-
