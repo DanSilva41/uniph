@@ -51,7 +51,7 @@ public class DisciplinaRepositorio {
 		return disciplina;
 	}
 
-	public void exluir(final Disciplina disciplina) {
+	public void excluir(final Disciplina disciplina) {
 
 		criarDAOEEm();
 

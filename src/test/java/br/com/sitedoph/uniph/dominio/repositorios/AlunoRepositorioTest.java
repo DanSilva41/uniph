@@ -17,7 +17,7 @@ public class AlunoRepositorioTest extends BaseTest {
 		Aluno buscarPorCpf = repo.buscarPorCPF(estudante.getCpf());
 		
 		if(buscarPorCpf != null){
-			repo.exluir(buscarPorCpf);
+			repo.excluir(buscarPorCpf);
 		}
 		
 		estudante = repo.salvarOuAtualizar(estudante);

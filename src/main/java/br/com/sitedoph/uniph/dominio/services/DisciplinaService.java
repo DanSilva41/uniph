@@ -22,7 +22,7 @@ public class DisciplinaService {
 	}
 
 	public void excluir(Disciplina disciplina) {
-		repo.exluir(disciplina);
+		repo.excluir(disciplina);
 	}
 
 	public Disciplina salvarOuAtualizar(Disciplina disciplina) {

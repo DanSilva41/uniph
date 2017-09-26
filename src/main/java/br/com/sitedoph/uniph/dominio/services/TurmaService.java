@@ -22,7 +22,7 @@ public class TurmaService {
 	}
 
 	public void excluir(Turma turma) {
-		repo.exluir(turma);
+		repo.excluir(turma);
 	}
 
 	public Turma salvarOuAtualizar(Turma turma) {

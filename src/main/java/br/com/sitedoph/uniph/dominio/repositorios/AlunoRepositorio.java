@@ -50,7 +50,7 @@ public class AlunoRepositorio {
 		return aluno;
 	}
 
-	public void exluir(final Aluno aluno) {
+	public void excluir(final Aluno aluno) {
 
 		criarDAOEEm();
 

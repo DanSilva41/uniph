@@ -5,13 +5,14 @@ import java.util.Set;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 
-import br.com.sitedoph.uniph.dominio.entidades.Usuario;
+import org.junit.Test;
+
 import br.com.sitedoph.uniph.infraestrutura.validacao.util.ValidadorUtil;
 import junit.framework.Assert;
 
 public class UsuarioTest {
 	
-	//@Test
+	@Test
 	public void deveValidar() {
 		
 		Validator validador = ValidadorUtil.getValidator();

@@ -22,7 +22,7 @@ public class AlunoService {
 	}
 
 	public void excluir(Aluno aluno) {
-		repo.exluir(aluno);
+		repo.excluir(aluno);
 	}
 
 	public Aluno salvarOuAtualizar(Aluno aluno) {

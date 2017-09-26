@@ -17,7 +17,7 @@ public class TurmaRepositorioTest extends BaseTest {
 		Turma buscarPorDescricao = repo.buscarPorDescricao(turma.getDescricao());
 
 		if (buscarPorDescricao != null) {
-			repo.exluir(turma);
+			repo.excluir(turma);
 		}
 		
 		turma.setAlunos(null);

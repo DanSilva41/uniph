@@ -51,7 +51,7 @@ public class TurmaRepositorio {
 		return turma;
 	}
 
-	public void exluir(final Turma turma) {
+	public void excluir(final Turma turma) {
 
 		criarDAOEEm();
 

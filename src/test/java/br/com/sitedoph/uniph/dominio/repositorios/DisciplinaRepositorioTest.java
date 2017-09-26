@@ -18,7 +18,7 @@ public class DisciplinaRepositorioTest extends BaseTest {
 		Disciplina buscarPorDescricao = repo.buscarPorDescricao(materia.getDescricao());
 
 		if (buscarPorDescricao != null) {
-			repo.exluir(materia);
+			repo.excluir(materia);
 		}
 
 		materia = repo.salvarOuAtualizar(materia);
