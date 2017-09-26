@@ -19,7 +19,6 @@
 	<dependencies>
 
 		<!-- Hibernate -->
-
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
@@ -31,7 +30,7 @@
 			<version>5.2.9.Final</version>
 		</dependency>
 
-		<!-- Validações: -->
+		<!-- Validações -->
 
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -39,18 +38,36 @@
 			<version>5.2.3.Final</version>
 		</dependency>
 
+
+		<!-- Mysql 5.1.6 -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.6</version>
+		</dependency>
+
+		<!-- Testes - Junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+
 		<!-- JSF -->
 
 		<dependency>
-			<groupId>com.sun.faces</groupId>
-			<artifactId>jsf-api</artifactId>
-			<version>2.2.4</version>
+			<groupId>org.glassfish</groupId>
+			<artifactId>javax.faces</artifactId>
+			<version>2.2.9</version>
+			<scope>compile</scope>
 		</dependency>
 
 		<dependency>
-			<groupId>com.sun.faces</groupId>
-			<artifactId>jsf-impl</artifactId>
-			<version>2.2.4</version>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
@@ -65,27 +82,26 @@
 			<version>2.2.4</version>
 		</dependency>
 
-		<!-- Mysql 5.1.6 -->
-
+		<!--PRIMEFACES -->
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.6</version>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>6.1</version>
+			<scope>compile</scope>
 		</dependency>
 
-		<!-- Testes - Junit -->
-
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>
-			<scope>test</scope>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>1.0.10</version>
+			<scope>compile</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>br.com.six2six</groupId>
 			<artifactId>fixture-factory</artifactId>
 			<version>3.1.0</version>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>
@@ -133,6 +149,13 @@
 		</plugins>
 	</build>
 
-
+	<repositories>
+		<repository>
+			<id>prime-repo</id>
+			<name>PrimeFaces Maven Repository</name>
+			<url>http://repository.primefaces.org</url>
+			<layout>default</layout>
+		</repository>
+	</repositories>
 
 </project>
