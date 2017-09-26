@@ -1,10 +1,10 @@
-package br.com.sitedoph.uniph.dominio.repositorio;
+package br.com.sitedoph.uniph.dominio.repositorios;
 
 import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import br.com.sitedoph.uniph.dominio.entidade.Usuario;
+import br.com.sitedoph.uniph.dominio.entidades.Usuario;
 import br.com.sitedoph.uniph.infraestrutura.dao.impl.UsuarioDAO;
 import br.com.sitedoph.uniph.infraestrutura.persistencia.JPAUtil;
 

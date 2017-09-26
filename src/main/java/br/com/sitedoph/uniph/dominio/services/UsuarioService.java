@@ -2,8 +2,8 @@ package br.com.sitedoph.uniph.dominio.services;
 
 import java.util.List;
 
-import br.com.sitedoph.uniph.dominio.entidade.Usuario;
-import br.com.sitedoph.uniph.dominio.repositorio.UsuarioRepositorio;
+import br.com.sitedoph.uniph.dominio.entidades.Usuario;
+import br.com.sitedoph.uniph.dominio.repositorios.UsuarioRepositorio;
 
 public class UsuarioService {
 	

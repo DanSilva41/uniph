@@ -1,10 +1,11 @@
-package br.com.sitedoph.uniph.dominio.entidade;
+package br.com.sitedoph.uniph.dominio.entidades;
 
 import java.util.Set;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 
+import br.com.sitedoph.uniph.dominio.entidades.Usuario;
 import br.com.sitedoph.uniph.infraestrutura.validacao.util.ValidadorUtil;
 import junit.framework.Assert;
 

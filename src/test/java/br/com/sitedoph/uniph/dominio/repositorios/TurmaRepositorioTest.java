@@ -1,7 +1,7 @@
 package br.com.sitedoph.uniph.dominio.repositorios;
 
-import br.com.sitedoph.uniph.dominio.entidade.Turma;
-import br.com.sitedoph.uniph.dominio.repositorio.TurmaRepositorio;
+import br.com.sitedoph.uniph.dominio.entidades.Turma;
+import br.com.sitedoph.uniph.dominio.repositorios.TurmaRepositorio;
 import br.com.sitedoph.uniph.tests.BaseTest;
 import br.com.six2six.fixturefactory.Fixture;
 

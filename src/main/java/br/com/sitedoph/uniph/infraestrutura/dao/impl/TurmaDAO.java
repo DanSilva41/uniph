@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import br.com.sitedoph.uniph.dominio.entidade.Turma;
+import br.com.sitedoph.uniph.dominio.entidades.Turma;
 import br.com.sitedoph.uniph.infraestrutura.dao.GenericDAO;
 
 public class TurmaDAO {

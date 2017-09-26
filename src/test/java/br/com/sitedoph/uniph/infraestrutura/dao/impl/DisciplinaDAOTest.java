@@ -4,7 +4,7 @@ import javax.persistence.EntityManager;
 
 import org.hibernate.Session;
 
-import br.com.sitedoph.uniph.dominio.entidade.Disciplina;
+import br.com.sitedoph.uniph.dominio.entidades.Disciplina;
 import br.com.sitedoph.uniph.infraestrutura.persistencia.JPAUtil;
 import br.com.sitedoph.uniph.tests.BaseTest;
 import br.com.six2six.fixturefactory.Fixture;

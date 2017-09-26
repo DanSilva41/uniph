@@ -1,9 +1,9 @@
-package br.com.sitedoph.uniph.dominio.entidade.templateloader;
+package br.com.sitedoph.uniph.dominio.entidades.templateloader;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import br.com.sitedoph.uniph.dominio.entidade.*;
+import br.com.sitedoph.uniph.dominio.entidades.*;
 import br.com.six2six.fixturefactory.Fixture;
 import br.com.six2six.fixturefactory.Rule;
 import br.com.six2six.fixturefactory.loader.TemplateLoader;

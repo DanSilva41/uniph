@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import br.com.sitedoph.uniph.dominio.entidade.Disciplina;
+import br.com.sitedoph.uniph.dominio.entidades.Disciplina;
 
 public class DisciplinaDAO {
 	
