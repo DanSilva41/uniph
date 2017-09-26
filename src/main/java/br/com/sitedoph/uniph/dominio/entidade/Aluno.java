@@ -11,6 +11,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.validator.constraints.br.CPF;
+
 @Entity
 @Table(name = "TB_ALUNO")
 public class Aluno {
@@ -21,6 +23,8 @@ public class Aluno {
 
 	private String nomeCompleto;
 	private String rg;
+	
+	@CPF
 	private String cpf;
 
 	@Temporal(TemporalType.TIMESTAMP)

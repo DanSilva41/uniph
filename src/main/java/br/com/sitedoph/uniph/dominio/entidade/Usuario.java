@@ -1,6 +1,10 @@
 package br.com.sitedoph.uniph.dominio.entidade;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Table(name = "TB_USUARIO")
@@ -9,11 +13,37 @@ public class Usuario {
 	@Id
 	@GeneratedValue
 	private Long id;
-	private String nomeCompleto;
 	
+	/**
+	 * The nome completo
+	 */
+	@NotBlank(message = "O nome não pode estar vazio")
+	@Size(min = 5, message = "O nome deve ter ao"
+						+ "menos 5 caracteres ")
+	private String nomeCompleto;
+
+	/**
+	 * The email
+	 */
+	@Email(message = "E-mail inválido")
+	@NotBlank(message = "É necessário um " + "endereço de e-mail")
 	@Column(unique = true)
 	private String email;
+
+	/**
+	 * The login
+	 */
+	@NotBlank(message = "Login obrigatório")
+	@Size(min = 3, message = "O login deve ter ao"
+						+ "menos 3 caracteres ")
 	private String login;
+	
+	/**
+	 * The senha	
+	 */
+	@NotBlank(message = "A senha não pode estar em branco")
+	@Size(min = 5, message = "A senha deve ter pelo"
+						+ "menos 5 caracteres ")
 	private String senha;
 
 	public Long getId() {
@@ -55,14 +85,12 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
+
 	@Override
-	public String toString(){
-		return "[USUARIO]:" + (id != null ? "\nID = " + id + ";" : "") +
-				(nomeCompleto != null ? "\nNome = " + nomeCompleto + ";" : "") +
-				(email != null ? "\nE-mail = " + email + ";" : "") +
-				(login != null ? "\nLogin = " + login + ";" : "") +
-				(senha != null ? "\nSenha = " + senha + ";" : "");
+	public String toString() {
+		return "[USUARIO]:" + (id != null ? "\nID = " + id + ";" : "")
+				+ (nomeCompleto != null ? "\nNome = " + nomeCompleto + ";" : "")
+				+ (email != null ? "\nE-mail = " + email + ";" : "") + (login != null ? "\nLogin = " + login + ";" : "")
+				+ (senha != null ? "\nSenha = " + senha + ";" : "");
 	}
 }
-

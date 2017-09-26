@@ -52,5 +52,7 @@ public class ProfessorDAOTest {
 		for (Professor professor : buscarTodos) {
 			System.out.println(professor);
 		}
+		
+		em.close();
 	}
 }

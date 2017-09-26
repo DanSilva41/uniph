@@ -55,5 +55,7 @@ public class AlunoDAOTest {
 		for(Aluno aluno : buscarTodos) {
 			System.out.println(aluno);
 		}
+		
+		em.close();
 	}
 }

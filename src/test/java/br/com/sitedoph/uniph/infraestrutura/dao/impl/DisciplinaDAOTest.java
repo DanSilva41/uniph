@@ -4,8 +4,6 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import org.junit.Test;
-
 import br.com.sitedoph.uniph.dominio.entidade.Disciplina;
 import br.com.sitedoph.uniph.dominio.entidade.Professor;
 import br.com.sitedoph.uniph.infraestrutura.persistencia.JPAUtil;
@@ -62,5 +60,7 @@ public class DisciplinaDAOTest {
 		for (Disciplina disciplina : buscarTodos) {
 			System.out.println(disciplina);
 		}
+		
+		em.close();
 	}
 }
