@@ -1,14 +1,12 @@
 package br.com.sitedoph.uniph.dominio.services;
 
-import org.junit.Test;
-
 import br.com.sitedoph.uniph.dominio.entidades.Aluno;
 import br.com.sitedoph.uniph.tests.BaseTest;
 import br.com.six2six.fixturefactory.Fixture;
 
 public class AlunoServiceTest extends BaseTest {
 	
-	@Test
+	//@Test
 	public void deveFuncionarService(){
 		
 		AlunoService service = new AlunoService();

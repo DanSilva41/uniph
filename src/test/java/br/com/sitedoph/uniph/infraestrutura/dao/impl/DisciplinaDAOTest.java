@@ -3,7 +3,6 @@ package br.com.sitedoph.uniph.infraestrutura.dao.impl;
 import javax.persistence.EntityManager;
 
 import org.hibernate.Session;
-import org.junit.Test;
 
 import br.com.sitedoph.uniph.dominio.entidades.Disciplina;
 import br.com.sitedoph.uniph.infraestrutura.persistencia.JPAUtil;
@@ -13,7 +12,7 @@ import br.com.six2six.fixturefactory.processor.HibernateProcessor;
 
 public class DisciplinaDAOTest extends BaseTest {
 
-	@Test
+	//@Test
 	public void deveFazerCRUDDeDisciplina() {
 
 		EntityManager em = JPAUtil.getEntityManager();

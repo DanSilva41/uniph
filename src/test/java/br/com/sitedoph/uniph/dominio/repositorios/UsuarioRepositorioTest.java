@@ -1,14 +1,12 @@
 package br.com.sitedoph.uniph.dominio.repositorios;
 
-import org.junit.Test;
-
 import br.com.sitedoph.uniph.dominio.entidades.Usuario;
 import br.com.sitedoph.uniph.tests.BaseTest;
 import br.com.six2six.fixturefactory.Fixture;
 
 public class UsuarioRepositorioTest extends BaseTest {
 
-	@Test
+	//@Test
 	public void deveFuncionarORepositorio() {
 
 		UsuarioRepositorio repo = new UsuarioRepositorio();
