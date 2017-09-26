@@ -13,9 +13,28 @@
 <f:view>
 
 	<h:form>
+		<h:panelGrid columns="2">
 
-		<h:outputText value="Olá Mundo!!!!" />
+			<h:outputLabel for="nome" value="Nome:" />
+			<h:inputText id="nome" 
+			value="#{usuarioBean.usuario.nomeCompleto}" />
 
+			<h:outputLabel for="login" value="Login" />
+			<h:inputText id="login"
+			value="#{usuarioBean.usuario.login}" />
+
+			<h:outputLabel for="email" value="E-mail" />
+			<h:inputText id="email" 
+			value="#{usuarioBean.usuario.email}" />
+
+			<h:outputLabel for="senha" value="Senha" />
+			<h:inputSecret id="senha" 
+			value="#{usuarioBean.usuario.senha}" />
+
+			<h:commandButton value="Gravar" 
+			action="#{usuarioBean.gravar()}" />
+
+		</h:panelGrid>
 	</h:form>
 
 </f:view>
