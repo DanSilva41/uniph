@@ -1,5 +1,7 @@
 package br.com.sitedoph.uniph.dominio.entidade;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 
@@ -8,8 +10,16 @@ import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Table(name = "TB_USUARIO")
-public class Usuario {
+public class Usuario implements Serializable{
 
+	/**
+	 * The Constant serialVersionUID
+	 */
+	private static final long serialVersionUID = -162222018784333347L;
+
+	/**
+	 * The id
+	 */
 	@Id
 	@GeneratedValue
 	private Long id;

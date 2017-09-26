@@ -23,8 +23,8 @@ public class Aluno {
 
 	private String nomeCompleto;
 	private String rg;
-	
-	@CPF
+
+	@CPF(message = "CPF inváĺido")
 	private String cpf;
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -35,7 +35,7 @@ public class Aluno {
 
 	private String telefone;
 	private String email;
-	
+
 	@Enumerated(EnumType.ORDINAL)
 	private Sexo sexo;
 
@@ -110,17 +110,16 @@ public class Aluno {
 	public void setSexo(Sexo sexo) {
 		this.sexo = sexo;
 	}
-	
+
 	@Override
-	public String toString(){
-		return "[ALUNO]:" + (id != null ? "\nID = " + id + ";" : "") +
-				(nomeCompleto != null ? "\nNome = " + nomeCompleto + ";" : "") +
-				(rg != null ? "\nRG = " + rg + ";" : "") +
-				(cpf != null ? "\nCPF = " + cpf + ";" : "") +
-				(dataDeNascimento != null ? "\nDt de Nascimento = " + dataDeNascimento + ";" : "") +
-				(dataDeCadastro != null ? "\nDt de Cadastro = " + dataDeCadastro + ";" : "") +
-				(telefone != null ? "\nTelefone = " + telefone + ";" : "") +
-				(email != null ? "\nE-mail = " + email + ";" : "") +
-				(sexo != null ? "\nSexo = " + sexo.getDescricao() + ";" : "");
+	public String toString() {
+		return "[ALUNO]:" + (id != null ? "\nID = " + id + ";" : "")
+				+ (nomeCompleto != null ? "\nNome = " + nomeCompleto + ";" : "")
+				+ (rg != null ? "\nRG = " + rg + ";" : "") + (cpf != null ? "\nCPF = " + cpf + ";" : "")
+				+ (dataDeNascimento != null ? "\nDt de Nascimento = " + dataDeNascimento + ";" : "")
+				+ (dataDeCadastro != null ? "\nDt de Cadastro = " + dataDeCadastro + ";" : "")
+				+ (telefone != null ? "\nTelefone = " + telefone + ";" : "")
+				+ (email != null ? "\nE-mail = " + email + ";" : "")
+				+ (sexo != null ? "\nSexo = " + sexo.getDescricao() + ";" : "");
 	}
 }
