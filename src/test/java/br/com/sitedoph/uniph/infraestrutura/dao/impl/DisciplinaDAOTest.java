@@ -13,7 +13,7 @@ import br.com.six2six.fixturefactory.processor.HibernateProcessor;
 
 public class DisciplinaDAOTest extends BaseTest {
 
-	@Test
+	// @Test
 	public void deveFazerCRUDDeDisciplina() {
 
 		EntityManager em = JPAUtil.getEntityManager();

@@ -33,7 +33,7 @@ public enum Sexo {
 	}
 	
 	/*
-	 * Obtém a descricao
+	 * ObtÃ©m a descricao
 	 * 
 	 * @return a descricao
 	 */

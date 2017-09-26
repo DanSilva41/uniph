@@ -1,25 +1,27 @@
 package br.com.sitedoph.uniph.infraestrutura.dao.impl;
 
-import java.util.Calendar;
-import java.util.List;
-
 import javax.persistence.EntityManager;
+
+import org.junit.Test;
 
 import br.com.sitedoph.uniph.dominio.entidade.Professor;
 import br.com.sitedoph.uniph.infraestrutura.persistencia.JPAUtil;
+import br.com.sitedoph.uniph.tests.BaseTest;
+import br.com.six2six.fixturefactory.Fixture;
 
-public class ProfessorDAOTest {
+public class ProfessorDAOTest extends BaseTest {
 
-	private static final String CPF = "999.999.999-99";
-
-	//@Test
+	// @Test
 	public void deveFazerCRUDDeProfessor() {
 
 		EntityManager em = JPAUtil.getEntityManager();
 
 		ProfessorDAO dao = new ProfessorDAO(em);
+
+		Professor teacher = Fixture.from(Professor.class).gimme(VALID);
+
 		// Utilizando método buscarPorExemplo de GenericDAOHibernate
-		Professor professorPorCPF = dao.buscarCPF(CPF);
+		Professor professorPorCPF = dao.buscarCPF(teacher.getCpf());
 
 		em.getTransaction().begin();
 		if (professorPorCPF != null) {
@@ -28,31 +30,17 @@ public class ProfessorDAOTest {
 		}
 		em.getTransaction().commit();
 
-		Professor ph = new Professor();
-
-		ph.setEmail("ph@gmail.com");
-		ph.setCpf(CPF);
-		ph.setNomeCompleto("Palerique");
-		ph.setTelefone("999999999");
-		ph.setDataCadastro(Calendar.getInstance());
-		ph.setCurriculo("Java Full Stack");
-		
 		em.getTransaction().begin();
 
 		// Utilizando método salvarOuAtualizar
-		ph = dao.salvarOuAtualizar(ph);
+		teacher = dao.salvarOuAtualizar(teacher);
 
 		em.getTransaction().commit();
 
-		// Professor buscarPorId = dao.buscarPorId(ph.getId());
-
-		// Utilizando método buscarTodos
-		List<Professor> buscarTodos = dao.buscarTodos();
-
-		for (Professor professor : buscarTodos) {
+		for (Professor professor : dao.buscarTodos()) {
 			System.out.println(professor);
 		}
-		
+
 		em.close();
 	}
 }
