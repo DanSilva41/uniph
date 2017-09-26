@@ -9,7 +9,9 @@
 	<description>Projeto desenvolvido no curso de Java para Web</description>
 	<!-- Dependências do projeto -->
 	<dependencies>
+	
 		<!-- Hibernate -->
+		
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
@@ -20,8 +22,28 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>5.2.9.Final</version>
 		</dependency>
+		
+		<!-- Validações: -->
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.2.3.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.el</groupId>
+			<artifactId>javax.el-api</artifactId>
+			<version>2.2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.web</groupId>
+			<artifactId>javax.el</artifactId>
+			<version>2.2.4</version>
+		</dependency>
 
 		<!-- Mysql 5.1.6 -->
+		
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -29,6 +51,7 @@
 		</dependency>
 
 		<!-- Testes - Junit -->
+		
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>

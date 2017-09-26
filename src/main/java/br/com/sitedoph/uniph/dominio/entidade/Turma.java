@@ -15,11 +15,11 @@ public class Turma {
 	private String diasDaSemana;
 	private String horario;
 	
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	private List<Aluno> alunos;
 	@ManyToMany
 	private List<Disciplina> disciplinas;
-
+    
 	public Integer getId() {
 		return id;
 	}

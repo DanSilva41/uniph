@@ -61,6 +61,7 @@ public class UsuarioRepositorio {
 			DAO.excluir(usuario);
 			em.getTransaction().commit();
 		} catch (final Exception e) {
+			e.printStackTrace();
 			em.getTransaction().rollback();
 		}
 
@@ -78,6 +79,7 @@ public class UsuarioRepositorio {
 			usuario = DAO.salvarOuAtualizar(usuario);
 			em.getTransaction().commit();
 		} catch (Exception e) {
+			e.printStackTrace();
 			em.getTransaction().rollback();
 			throw e;
 		} finally {
