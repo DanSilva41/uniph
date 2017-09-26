@@ -6,7 +6,7 @@ import br.com.six2six.fixturefactory.Fixture;
 
 public class UsuarioRepositorioTest extends BaseTest {
 
-	//@Test
+	// @Test
 	public void deveFuncionarORepositorio() {
 
 		UsuarioRepositorio repo = new UsuarioRepositorio();

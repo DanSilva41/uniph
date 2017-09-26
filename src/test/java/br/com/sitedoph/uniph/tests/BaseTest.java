@@ -9,7 +9,7 @@ import br.com.six2six.fixturefactory.loader.FixtureFactoryLoader;
  */
 public class BaseTest {
 	protected static final String VALID = "valid";
-	
+
 	@BeforeClass
 	public static void setUp() {
 		FixtureFactoryLoader.loadTemplates("br.com.sitedoph.uniph.dominio.entidades.templateloader");

@@ -9,7 +9,7 @@ import br.com.six2six.fixturefactory.Fixture;
 
 public class DisciplinaServiceTest extends BaseTest {
 
-	//@Test
+	// @Test
 	public void deveFuncionarService() {
 
 		DisciplinaService service = new DisciplinaService();

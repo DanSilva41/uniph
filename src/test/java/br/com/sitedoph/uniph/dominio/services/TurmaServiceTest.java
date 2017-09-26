@@ -10,7 +10,7 @@ import br.com.six2six.fixturefactory.Fixture;
 
 public class TurmaServiceTest extends BaseTest {
 
-	//@Test
+	// @Test
 	public void deveFuncionarService() {
 
 		TurmaService service = new TurmaService();

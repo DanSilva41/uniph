@@ -9,7 +9,7 @@ import br.com.six2six.fixturefactory.Fixture;
 
 public class ProfessorDAOTest extends BaseTest {
 
-	//@Test
+	// @Test
 	public void deveFazerCRUDDeProfessor() {
 
 		EntityManager em = JPAUtil.getEntityManager();

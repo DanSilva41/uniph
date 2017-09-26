@@ -12,7 +12,7 @@ import br.com.sitedoph.uniph.dominio.entidades.Aluno;
 
 public class PersistenciaTest {
 
-	//@Test
+	// @Test
 	public void deveCriarOEntityManagerFactoryEEntityManager() {
 
 		try {
@@ -26,7 +26,7 @@ public class PersistenciaTest {
 		}
 	}
 
-	//@Test
+	// @Test
 	public void devePersistirUmAluno() {
 
 		// Retorna um instância de EntityManager

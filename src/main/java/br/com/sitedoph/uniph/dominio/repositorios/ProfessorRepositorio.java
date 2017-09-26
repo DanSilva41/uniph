@@ -83,7 +83,7 @@ public class ProfessorRepositorio {
 		} finally {
 			em.close();
 		}
-		
+
 		return professor;
 	}
 }

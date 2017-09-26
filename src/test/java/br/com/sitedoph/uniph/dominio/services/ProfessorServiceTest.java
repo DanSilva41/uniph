@@ -6,7 +6,7 @@ import br.com.six2six.fixturefactory.Fixture;
 
 public class ProfessorServiceTest extends BaseTest {
 
-	//@Test
+	// @Test
 	public void deveFuncionarService() {
 
 		ProfessorService service = new ProfessorService();

@@ -11,17 +11,17 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Entity
 @Table(name = "TB_DISCIPLINA")
 public class Disciplina {
-	
+
 	@Id
 	@GeneratedValue
 	private Long id;
-	
+
 	@NotEmpty(message = "Preencha a descrição!")
 	private String descricao;
-	
+
 	@ManyToOne
 	private Professor professor;
-	
+
 	private String cargaHoraria;
 
 	public Long getId() {
@@ -55,14 +55,13 @@ public class Disciplina {
 	public void setCargaHoraria(String cargaHoraria) {
 		this.cargaHoraria = cargaHoraria;
 	}
-	
+
 	@Override
-	public String toString(){
-		return "[DISCIPLINA]:" + (id != null ? "\nID = " + id + ";" : "") +
-				(descricao != null ? "\nDescrição = " + descricao + ";" : "") +
-				(professor != null ? "\nProfessor = " + professor + ";" : "") +
-				(cargaHoraria != null ? "\nCarga Horária = " + cargaHoraria + ";" : "");
+	public String toString() {
+		return "[DISCIPLINA]:" + (id != null ? "\nID = " + id + ";" : "")
+				+ (descricao != null ? "\nDescrição = " + descricao + ";" : "")
+				+ (professor != null ? "\nProfessor = " + professor + ";" : "")
+				+ (cargaHoraria != null ? "\nCarga Horária = " + cargaHoraria + ";" : "");
 	}
 
 }
-

@@ -6,7 +6,7 @@ import br.com.six2six.fixturefactory.Fixture;
 
 public class TurmaRepositorioTest extends BaseTest {
 
-	//@Test
+	// @Test
 	public void deveFuncionarRepositorio() {
 
 		TurmaRepositorio repo = new TurmaRepositorio();
@@ -18,7 +18,7 @@ public class TurmaRepositorioTest extends BaseTest {
 		if (buscarPorDescricao != null) {
 			repo.excluir(turma);
 		}
-		
+
 		turma.setAlunos(null);
 		turma.setDisciplinas(null);
 

@@ -7,15 +7,15 @@ import br.com.sitedoph.uniph.infraestrutura.persistencia.JPAUtil;
 import br.com.sitedoph.uniph.tests.BaseTest;
 import br.com.six2six.fixturefactory.Fixture;
 
-public class AlunoDAOTest extends BaseTest{
+public class AlunoDAOTest extends BaseTest {
 
-	//@Test
+	// @Test
 	public void deveFazerCRUDDeAluno() {
 
 		EntityManager em = JPAUtil.getEntityManager();
 		AlunoDAO dao = new AlunoDAO(em);
 
-		 Aluno estudante = Fixture.from(Aluno.class).gimme(VALID);
+		Aluno estudante = Fixture.from(Aluno.class).gimme(VALID);
 
 		Aluno alunoPorCPF = dao.buscarCPF(estudante.getCpf());
 

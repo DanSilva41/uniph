@@ -12,7 +12,7 @@ import br.com.six2six.fixturefactory.processor.HibernateProcessor;
 
 public class TurmaDAOTest extends BaseTest {
 
-	//@Test
+	// @Test
 	public void deveFazerCRUD() {
 
 		EntityManager em = JPAUtil.getEntityManager();
@@ -22,9 +22,10 @@ public class TurmaDAOTest extends BaseTest {
 		AlunoDAO daoAluno = new AlunoDAO(em);
 		DisciplinaDAO daoDisciplina = new DisciplinaDAO(em);
 
-		// Gera e atribui os valores aos campos do objeto e 
+		// Gera e atribui os valores aos campos do objeto e
 		// invoca o processo para persistir os objetos relacionados
-		// É usado quando o objeto possui relacionamentos. == Evita objetos Transients ==
+		// É usado quando o objeto possui relacionamentos. == Evita objetos
+		// Transients ==
 		Turma sala = Fixture.from(Turma.class).uses(new HibernateProcessor((Session) em.getDelegate())).gimme(VALID);
 
 		Turma turmaPorDescricao = dao.buscarPorDescricao(sala.getDescricao());

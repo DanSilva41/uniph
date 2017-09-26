@@ -9,7 +9,7 @@ import br.com.six2six.fixturefactory.Fixture;
 
 public class DisciplinaRepositorioTest extends BaseTest {
 
-	//@Test
+	// @Test
 	public void deveFuncionarRepositorio() {
 
 		DisciplinaRepositorio repo = new DisciplinaRepositorio();

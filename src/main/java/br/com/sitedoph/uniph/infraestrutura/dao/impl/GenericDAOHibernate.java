@@ -15,18 +15,17 @@ import org.hibernate.criterion.MatchMode;
 import br.com.sitedoph.uniph.infraestrutura.dao.GenericDAO;
 
 public class GenericDAOHibernate<T, ID extends Serializable> implements GenericDAO<T, ID> {
-	
+
 	private final Class<T> CLASSE;
-	
+
 	private final EntityManager ENTITY_MANAGER;
-	
-	
+
 	public GenericDAOHibernate(final EntityManager entityManager, final Class<T> classe) {
-		
+
 		ENTITY_MANAGER = entityManager;
 		CLASSE = classe;
 	}
-	
+
 	@Override
 	public T salvarOuAtualizar(T entidade) {
 		return ENTITY_MANAGER.merge(entidade);
@@ -39,11 +38,11 @@ public class GenericDAOHibernate<T, ID extends Serializable> implements GenericD
 
 	@Override
 	public List<T> buscarTodos() {
-		
+
 		final CriteriaQuery<T> query = ENTITY_MANAGER.getCriteriaBuilder().createQuery(CLASSE);
-		
+
 		query.select(query.from(CLASSE));
-		
+
 		return ENTITY_MANAGER.createQuery(query).getResultList();
 	}
 
@@ -55,7 +54,7 @@ public class GenericDAOHibernate<T, ID extends Serializable> implements GenericD
 
 	@Override
 	public List<T> buscarPorCriteria(Criterion... criteria) {
-		
+
 		final Session session = getHibernateSession();
 
 		final Criteria crit = session.createCriteria(CLASSE);
@@ -66,16 +65,15 @@ public class GenericDAOHibernate<T, ID extends Serializable> implements GenericD
 
 		return crit.list();
 	}
-	
+
 	private Session getHibernateSession() {
 		final Session session = (Session) ENTITY_MANAGER.getDelegate();
 		return session;
 	}
 
-
 	@Override
 	public List<T> buscarPorExemplo(T exemplo, String... propriedadesAExcluir) {
-		
+
 		final Example example = Example.create(exemplo);
 
 		example.enableLike(MatchMode.ANYWHERE);
@@ -85,11 +83,11 @@ public class GenericDAOHibernate<T, ID extends Serializable> implements GenericD
 		for (String prop : propriedadesAExcluir) {
 			example.excludeProperty(prop);
 		}
-		
+
 		final Session session = getHibernateSession();
-		
+
 		final Criteria criteria = session.createCriteria(CLASSE).add(example);
-		
+
 		return criteria.list();
 	}
 }

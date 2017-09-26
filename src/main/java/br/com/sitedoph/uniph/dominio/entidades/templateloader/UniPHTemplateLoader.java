@@ -3,7 +3,12 @@ package br.com.sitedoph.uniph.dominio.entidades.templateloader;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import br.com.sitedoph.uniph.dominio.entidades.*;
+import br.com.sitedoph.uniph.dominio.entidades.Aluno;
+import br.com.sitedoph.uniph.dominio.entidades.Disciplina;
+import br.com.sitedoph.uniph.dominio.entidades.Professor;
+import br.com.sitedoph.uniph.dominio.entidades.Sexo;
+import br.com.sitedoph.uniph.dominio.entidades.Turma;
+import br.com.sitedoph.uniph.dominio.entidades.Usuario;
 import br.com.six2six.fixturefactory.Fixture;
 import br.com.six2six.fixturefactory.Rule;
 import br.com.six2six.fixturefactory.loader.TemplateLoader;
