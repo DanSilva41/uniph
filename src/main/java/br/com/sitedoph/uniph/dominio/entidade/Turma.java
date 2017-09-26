@@ -2,7 +2,15 @@ package br.com.sitedoph.uniph.dominio.entidade;
 
 import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 @Table(name = "TB_TURMA")
@@ -17,7 +25,8 @@ public class Turma {
 	
 	@ManyToMany(fetch = FetchType.EAGER)
 	private List<Aluno> alunos;
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
+	@Fetch(FetchMode.SUBSELECT)
 	private List<Disciplina> disciplinas;
     
 	public Integer getId() {

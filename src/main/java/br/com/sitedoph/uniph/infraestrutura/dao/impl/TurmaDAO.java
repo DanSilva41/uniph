@@ -28,7 +28,14 @@ public class TurmaDAO {
 	}
 
 	public List<Turma> buscarTodos() {
-		return DAO.buscarTodos();
+		
+		List<Turma> exemplo = DAO.buscarTodos();
+		
+		if (exemplo != null && !exemplo.isEmpty()) {
+			return exemplo;
+		} else {
+			return null;
+		}
 	}
 
 	public Turma buscarPorDescricao(String descricao) {
