@@ -1,13 +1,14 @@
 package br.com.sitedoph.uniph.dominio.repositorios;
 
+import org.junit.Test;
+
 import br.com.sitedoph.uniph.dominio.entidades.Professor;
-import br.com.sitedoph.uniph.dominio.repositorios.ProfessorRepositorio;
 import br.com.sitedoph.uniph.tests.BaseTest;
 import br.com.six2six.fixturefactory.Fixture;
 
 public class ProfessorRepositorioTest extends BaseTest {
 
-	// @Test
+	@Test
 	public void deveFuncionarRepositorio() {
 
 		ProfessorRepositorio repo = new ProfessorRepositorio();

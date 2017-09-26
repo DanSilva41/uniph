@@ -3,6 +3,7 @@ package br.com.sitedoph.uniph.infraestrutura.dao.impl;
 import javax.persistence.EntityManager;
 
 import org.hibernate.Session;
+import org.junit.Test;
 
 import br.com.sitedoph.uniph.dominio.entidades.Turma;
 import br.com.sitedoph.uniph.infraestrutura.persistencia.JPAUtil;
@@ -12,7 +13,7 @@ import br.com.six2six.fixturefactory.processor.HibernateProcessor;
 
 public class TurmaDAOTest extends BaseTest {
 
-	// @Test
+	@Test
 	public void deveFazerCRUD() {
 
 		EntityManager em = JPAUtil.getEntityManager();

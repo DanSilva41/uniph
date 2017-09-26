@@ -2,6 +2,8 @@ package br.com.sitedoph.uniph.infraestrutura.dao.impl;
 
 import javax.persistence.EntityManager;
 
+import org.junit.Test;
+
 import br.com.sitedoph.uniph.dominio.entidades.Professor;
 import br.com.sitedoph.uniph.infraestrutura.persistencia.JPAUtil;
 import br.com.sitedoph.uniph.tests.BaseTest;
@@ -9,7 +11,7 @@ import br.com.six2six.fixturefactory.Fixture;
 
 public class ProfessorDAOTest extends BaseTest {
 
-	// @Test
+	@Test
 	public void deveFazerCRUDDeProfessor() {
 
 		EntityManager em = JPAUtil.getEntityManager();

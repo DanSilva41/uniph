@@ -8,11 +8,13 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
+import org.junit.Test;
+
 import br.com.sitedoph.uniph.dominio.entidades.Aluno;
 
 public class PersistenciaTest {
 
-	//@Test
+	@Test
 	public void deveCriarOEntityManagerFactoryEEntityManager() {
 
 		try {
@@ -26,7 +28,7 @@ public class PersistenciaTest {
 		}
 	}
 
-	//@Test
+	@Test
 	public void devePersistirUmAluno() {
 
 		// Retorna um instância de EntityManager
