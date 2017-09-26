@@ -1,10 +1,10 @@
-package br.com.sitedoph.uniph.dominio.repositorio;
+package br.com.sitedoph.uniph.dominio.repositorios;
 
 import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import br.com.sitedoph.uniph.dominio.entidade.Disciplina;
+import br.com.sitedoph.uniph.dominio.entidades.Disciplina;
 import br.com.sitedoph.uniph.infraestrutura.dao.impl.DisciplinaDAO;
 import br.com.sitedoph.uniph.infraestrutura.persistencia.JPAUtil;
 
@@ -51,7 +51,7 @@ public class DisciplinaRepositorio {
 		return disciplina;
 	}
 
-	public void exluir(final Disciplina disciplina) {
+	public void excluir(final Disciplina disciplina) {
 
 		criarDAOEEm();
 

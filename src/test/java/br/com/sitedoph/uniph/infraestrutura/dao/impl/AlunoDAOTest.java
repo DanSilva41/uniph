@@ -1,61 +1,40 @@
 package br.com.sitedoph.uniph.infraestrutura.dao.impl;
 
-import java.util.Calendar;
-import java.util.List;
-
 import javax.persistence.EntityManager;
 
-import br.com.sitedoph.uniph.dominio.entidade.Aluno;
-import br.com.sitedoph.uniph.dominio.entidade.Sexo;
+import br.com.sitedoph.uniph.dominio.entidades.Aluno;
 import br.com.sitedoph.uniph.infraestrutura.persistencia.JPAUtil;
+import br.com.sitedoph.uniph.tests.BaseTest;
+import br.com.six2six.fixturefactory.Fixture;
 
-public class AlunoDAOTest {
-	
-	private static final String CPF = "999.999.999-99";
-	
-	//@Test
-	public void deveFazerCRUDDeAluno(){
-		
+public class AlunoDAOTest extends BaseTest {
+
+	// @Test
+	public void deveFazerCRUDDeAluno() {
+
 		EntityManager em = JPAUtil.getEntityManager();
-		
 		AlunoDAO dao = new AlunoDAO(em);
-							// Utilizando método buscarPorExemplo de GenericDAOHibernate
-		Aluno alunoPorCPF = dao.buscarCPF(CPF);
-		
-		em.getTransaction().begin();
+
+		Aluno estudante = Fixture.from(Aluno.class).gimme(VALID);
+
+		Aluno alunoPorCPF = dao.buscarCPF(estudante.getCpf());
+
 		if (alunoPorCPF != null) {
-			// Utilizando método excluir
-			dao.excluir(alunoPorCPF);
+			estudante = alunoPorCPF;
+			// dao.excluir(alunoPorCPF);
 		}
-		em.getTransaction().commit();
-		
-		Aluno ph = new Aluno();
-		
-		ph.setEmail("ph@gmail.com");
-		ph.setCpf(CPF);
-		ph.setNomeCompleto("Palerique");
-		ph.setTelefone("999999999");
-		ph.setRg("7.897.889");
-		ph.setDataDeCadastro(Calendar.getInstance());
-		ph.setDataDeNascimento(Calendar.getInstance());
-		ph.setSexo(Sexo.MASCULINO);
-		
+
 		em.getTransaction().begin();
-		
+
 		// Utilizando método salvarOuAtualizar
-		ph = dao.salvarOuAtualizar(ph);
-		
+		estudante = dao.salvarOuAtualizar(estudante);
+
 		em.getTransaction().commit();
-		
-		// Aluno buscarPorId = dao.buscarPorId(ph.getId());
-		
-								// Utilizando método buscarTodos
-		List<Aluno> buscarTodos = dao.buscarTodos();
-		
-		for(Aluno aluno : buscarTodos) {
+
+		for (Aluno aluno : dao.buscarTodos()) {
 			System.out.println(aluno);
 		}
-		
+
 		em.close();
 	}
 }

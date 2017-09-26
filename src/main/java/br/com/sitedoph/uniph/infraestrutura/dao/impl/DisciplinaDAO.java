@@ -4,42 +4,42 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import br.com.sitedoph.uniph.dominio.entidade.Disciplina;
+import br.com.sitedoph.uniph.dominio.entidades.Disciplina;
 
 public class DisciplinaDAO {
-	
+
 	private final GenericDAOHibernate<Disciplina, Long> DAO;
-	
+
 	public DisciplinaDAO(EntityManager entityManager) {
-		
+
 		DAO = new GenericDAOHibernate<>(entityManager, Disciplina.class);
-		
+
 	}
-	
+
 	public void excluir(Disciplina entidade) {
 		DAO.excluir(entidade);
 	}
-	
+
 	public Disciplina salvarOuAtualizar(Disciplina entidade) {
 		return DAO.salvarOuAtualizar(entidade);
 	}
-	
+
 	public Disciplina buscarPorId(Long id) {
 		return DAO.buscarPorId(id);
 	}
-	
-	public List<Disciplina> buscarTodos(){
+
+	public List<Disciplina> buscarTodos() {
 		return DAO.buscarTodos();
 	}
-	
+
 	public Disciplina buscarPorDescricao(String descricao) {
-		
+
 		Disciplina exemplo = new Disciplina();
-		
+
 		exemplo.setDescricao(descricao);
-		
+
 		List<Disciplina> porExemplo = DAO.buscarPorExemplo(exemplo);
-		
+
 		if (porExemplo != null && !porExemplo.isEmpty()) {
 			return porExemplo.get(0);
 		} else {

@@ -1,4 +1,4 @@
-package br.com.sitedoph.uniph.dominio.entidade;
+package br.com.sitedoph.uniph.dominio.entidades;
 
 import java.util.List;
 
@@ -11,6 +11,7 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "TB_TURMA")
@@ -19,16 +20,19 @@ public class Turma {
 	@Id
 	@GeneratedValue
 	private Integer id;
+
+	@NotEmpty(message = "Preencha a descrição!")
 	private String descricao;
+
 	private String diasDaSemana;
 	private String horario;
-	
+
 	@ManyToMany(fetch = FetchType.EAGER)
 	private List<Aluno> alunos;
 	@ManyToMany(fetch = FetchType.EAGER)
 	@Fetch(FetchMode.SUBSELECT)
 	private List<Disciplina> disciplinas;
-    
+
 	public Integer getId() {
 		return id;
 	}
@@ -76,14 +80,14 @@ public class Turma {
 	public void setDisciplinas(List<Disciplina> disciplinas) {
 		this.disciplinas = disciplinas;
 	}
-	
+
 	@Override
-	public String toString(){
-		return "[TURMA]:" + (id != null ? "\nID = " + id + ";" : "") +
-				(descricao != null ? "\nDescrição = " + descricao + ";" : "") +
-				(diasDaSemana != null ? "\nDIas da semanda = " + diasDaSemana + ";" : "") +
-				(horario != null ? "\nHorário = " + horario+ ";" : "") +
-				(alunos != null ? "\nAlunos = " + alunos + ";" : "") +
-				(disciplinas != null ? "\nDisciplinas = " + disciplinas + ";" : "");
+	public String toString() {
+		return "[TURMA]:" + (id != null ? "\nID = " + id + ";" : "")
+				+ (descricao != null ? "\nDescrição = " + descricao + ";" : "")
+				+ (diasDaSemana != null ? "\nDIas da semanda = " + diasDaSemana + ";" : "")
+				+ (horario != null ? "\nHorário = " + horario + ";" : "")
+				+ (alunos != null ? "\nAlunos = " + alunos + ";" : "")
+				+ (disciplinas != null ? "\nDisciplinas = " + disciplinas + ";" : "");
 	}
 }

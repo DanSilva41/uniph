@@ -4,11 +4,11 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import br.com.sitedoph.uniph.dominio.entidade.Turma;
+import br.com.sitedoph.uniph.dominio.entidades.Turma;
 import br.com.sitedoph.uniph.infraestrutura.dao.GenericDAO;
 
 public class TurmaDAO {
-	
+
 	private final GenericDAO<Turma, Long> DAO;
 
 	public TurmaDAO(EntityManager entityManager) {
@@ -28,9 +28,9 @@ public class TurmaDAO {
 	}
 
 	public List<Turma> buscarTodos() {
-		
+
 		List<Turma> exemplo = DAO.buscarTodos();
-		
+
 		if (exemplo != null && !exemplo.isEmpty()) {
 			return exemplo;
 		} else {

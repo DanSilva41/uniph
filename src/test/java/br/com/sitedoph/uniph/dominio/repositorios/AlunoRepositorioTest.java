@@ -1,37 +1,27 @@
 package br.com.sitedoph.uniph.dominio.repositorios;
 
-import java.util.Calendar;
+import br.com.sitedoph.uniph.dominio.entidades.Aluno;
+import br.com.sitedoph.uniph.tests.BaseTest;
+import br.com.six2six.fixturefactory.Fixture;
 
-import org.junit.Test;
+public class AlunoRepositorioTest extends BaseTest {
 
-import br.com.sitedoph.uniph.dominio.entidade.Aluno;
-import br.com.sitedoph.uniph.dominio.entidade.Sexo;
-import br.com.sitedoph.uniph.dominio.repositorio.AlunoRepositorio;
-
-public class AlunoRepositorioTest {
-	
-	private static final String CPF = "888.888.888-88";
-	
 	// @Test
-	public void deveFuncionarRepositorio(){
-		
+	public void deveFuncionarRepositorio() {
+
 		AlunoRepositorio repo = new AlunoRepositorio();
-		
-		Aluno buscarPorCpf = repo.buscarPorCPF(CPF);
-		
-		if(buscarPorCpf != null){
-			repo.exluir(buscarPorCpf);
+
+		Aluno estudante = Fixture.from(Aluno.class).gimme(VALID);
+
+		Aluno buscarPorCpf = repo.buscarPorCPF(estudante.getCpf());
+
+		if (buscarPorCpf != null) {
+			repo.excluir(buscarPorCpf);
 		}
-		
-		Aluno student = new Aluno();
-		student.setNomeCompleto("João Pedro Silva");
-		student.setEmail("joam@gmail.com");
-		student.setDataDeNascimento(Calendar.getInstance());
-		student.setSexo(Sexo.MASCULINO);
-		
-		student = repo.salvarOuAtualizar(student);
-		
-		for(Aluno alunos : repo.buscarTodos()) {
+
+		estudante = repo.salvarOuAtualizar(estudante);
+
+		for (Aluno alunos : repo.buscarTodos()) {
 			System.out.println(alunos);
 		}
 	}

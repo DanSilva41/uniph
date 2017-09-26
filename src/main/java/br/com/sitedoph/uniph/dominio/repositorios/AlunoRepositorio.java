@@ -1,10 +1,10 @@
-package br.com.sitedoph.uniph.dominio.repositorio;
+package br.com.sitedoph.uniph.dominio.repositorios;
 
 import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import br.com.sitedoph.uniph.dominio.entidade.Aluno;
+import br.com.sitedoph.uniph.dominio.entidades.Aluno;
 import br.com.sitedoph.uniph.infraestrutura.dao.impl.AlunoDAO;
 import br.com.sitedoph.uniph.infraestrutura.persistencia.JPAUtil;
 
@@ -50,7 +50,7 @@ public class AlunoRepositorio {
 		return aluno;
 	}
 
-	public void exluir(final Aluno aluno) {
+	public void excluir(final Aluno aluno) {
 
 		criarDAOEEm();
 

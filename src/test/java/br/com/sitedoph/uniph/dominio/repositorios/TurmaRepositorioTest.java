@@ -1,21 +1,26 @@
 package br.com.sitedoph.uniph.dominio.repositorios;
 
-import org.junit.Test;
+import br.com.sitedoph.uniph.dominio.entidades.Turma;
+import br.com.sitedoph.uniph.tests.BaseTest;
+import br.com.six2six.fixturefactory.Fixture;
 
-import br.com.sitedoph.uniph.dominio.entidade.Turma;
-import br.com.sitedoph.uniph.dominio.repositorio.TurmaRepositorio;
-
-public class TurmaRepositorioTest {
+public class TurmaRepositorioTest extends BaseTest {
 
 	// @Test
 	public void deveFuncionarRepositorio() {
 
 		TurmaRepositorio repo = new TurmaRepositorio();
 
-		Turma turma = new Turma();
-		turma.setDescricao("A1");
-		turma.setHorario("10h as 11h");
-		turma.setDiasDaSemana("Quarta e Sexta");
+		Turma turma = Fixture.from(Turma.class).gimme(VALID);
+
+		Turma buscarPorDescricao = repo.buscarPorDescricao(turma.getDescricao());
+
+		if (buscarPorDescricao != null) {
+			repo.excluir(turma);
+		}
+
+		turma.setAlunos(null);
+		turma.setDisciplinas(null);
 
 		turma = repo.salvarOuAtualizar(turma);
 

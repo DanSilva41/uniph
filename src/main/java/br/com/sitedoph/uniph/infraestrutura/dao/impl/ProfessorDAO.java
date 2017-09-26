@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import br.com.sitedoph.uniph.dominio.entidade.Professor;
+import br.com.sitedoph.uniph.dominio.entidades.Professor;
 
 public class ProfessorDAO {
 

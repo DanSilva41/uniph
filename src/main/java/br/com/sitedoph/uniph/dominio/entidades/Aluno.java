@@ -1,4 +1,4 @@
-package br.com.sitedoph.uniph.dominio.entidade;
+package br.com.sitedoph.uniph.dominio.entidades;
 
 import java.util.Calendar;
 
@@ -11,6 +11,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.br.CPF;
 
 @Entity
@@ -21,10 +23,13 @@ public class Aluno {
 	@GeneratedValue
 	private Long id;
 
+	@NotBlank(message = "Preencha o nome completo!")
 	private String nomeCompleto;
+
 	private String rg;
-	
-	@CPF
+
+	@CPF(message = "CPF inváĺido")
+	@NotBlank(message = "Preencha o CPF!")
 	private String cpf;
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -34,8 +39,11 @@ public class Aluno {
 	private Calendar dataDeCadastro;
 
 	private String telefone;
+
+	@NotBlank(message = "Preenche o e-mail!")
+	@Email(message = "Endereço de e-mail inválido")
 	private String email;
-	
+
 	@Enumerated(EnumType.ORDINAL)
 	private Sexo sexo;
 
@@ -110,17 +118,16 @@ public class Aluno {
 	public void setSexo(Sexo sexo) {
 		this.sexo = sexo;
 	}
-	
+
 	@Override
-	public String toString(){
-		return "[ALUNO]:" + (id != null ? "\nID = " + id + ";" : "") +
-				(nomeCompleto != null ? "\nNome = " + nomeCompleto + ";" : "") +
-				(rg != null ? "\nRG = " + rg + ";" : "") +
-				(cpf != null ? "\nCPF = " + cpf + ";" : "") +
-				(dataDeNascimento != null ? "\nDt de Nascimento = " + dataDeNascimento + ";" : "") +
-				(dataDeCadastro != null ? "\nDt de Cadastro = " + dataDeCadastro + ";" : "") +
-				(telefone != null ? "\nTelefone = " + telefone + ";" : "") +
-				(email != null ? "\nE-mail = " + email + ";" : "") +
-				(sexo != null ? "\nSexo = " + sexo.getDescricao() + ";" : "");
+	public String toString() {
+		return "[ALUNO]:" + (id != null ? "\nID = " + id + ";" : "")
+				+ (nomeCompleto != null ? "\nNome = " + nomeCompleto + ";" : "")
+				+ (rg != null ? "\nRG = " + rg + ";" : "") + (cpf != null ? "\nCPF = " + cpf + ";" : "")
+				+ (dataDeNascimento != null ? "\nDt de Nascimento = " + dataDeNascimento + ";" : "")
+				+ (dataDeCadastro != null ? "\nDt de Cadastro = " + dataDeCadastro + ";" : "")
+				+ (telefone != null ? "\nTelefone = " + telefone + ";" : "")
+				+ (email != null ? "\nE-mail = " + email + ";" : "")
+				+ (sexo != null ? "\nSexo = " + sexo.getDescricao() + ";" : "");
 	}
 }

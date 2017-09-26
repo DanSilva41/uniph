@@ -1,66 +1,42 @@
 package br.com.sitedoph.uniph.infraestrutura.dao.impl;
 
-import java.util.List;
-
 import javax.persistence.EntityManager;
 
-import br.com.sitedoph.uniph.dominio.entidade.Disciplina;
-import br.com.sitedoph.uniph.dominio.entidade.Professor;
+import org.hibernate.Session;
+
+import br.com.sitedoph.uniph.dominio.entidades.Disciplina;
 import br.com.sitedoph.uniph.infraestrutura.persistencia.JPAUtil;
+import br.com.sitedoph.uniph.tests.BaseTest;
+import br.com.six2six.fixturefactory.Fixture;
+import br.com.six2six.fixturefactory.processor.HibernateProcessor;
 
-public class DisciplinaDAOTest {
+public class DisciplinaDAOTest extends BaseTest {
 
-	private final String DESCRICAO = "Estrutura de Dados";
-	
-	//@Test
+	// @Test
 	public void deveFazerCRUDDeDisciplina() {
 
 		EntityManager em = JPAUtil.getEntityManager();
-
 		DisciplinaDAO dao = new DisciplinaDAO(em);
-		
-		ProfessorDAO daoP = new ProfessorDAO(em); // Para testes
-		
-		// Utilizando método buscarPorExemplo de GenericDAOHibernate
-		Disciplina disciplinaPorDescricao = dao.buscarPorDescricao(DESCRICAO);
 
+		Disciplina disciplina1 = Fixture.from(Disciplina.class).uses(new HibernateProcessor((Session) em.getDelegate()))
+				.gimme("valid");
+
+		Disciplina disciplinaPorDescricao = dao.buscarPorDescricao(disciplina1.getDescricao());
 		em.getTransaction().begin();
 		if (disciplinaPorDescricao != null) {
-			// Utilizando método excluir
 			dao.excluir(disciplinaPorDescricao);
 		}
 		em.getTransaction().commit();
-		
+
 		em.getTransaction().begin();
-
-		// Para testes
-		Professor ph = new Professor();
-		ph.setNomeCompleto("Paulo Henrique Lerbach");
-		
-		ph = daoP.salvarOuAtualizar(ph);
-		em.getTransaction().commit();
-		
-		em.getTransaction().begin();
-		Disciplina java = new Disciplina();
-		
-		java.setDescricao(DESCRICAO);
-		java.setCargaHoraria("80H");
-		java.setProfessor(ph);
-
-		// Utilizando método salvarOuAtualizar
-		java = dao.salvarOuAtualizar(java);
-
+		disciplina1 = dao.salvarOuAtualizar(disciplina1);
 		em.getTransaction().commit();
 
-		// Disciplina buscarPorId = dao.buscarPorId(ph.getId());
-
-		// Utilizando método buscarTodos
-		List<Disciplina> buscarTodos = dao.buscarTodos();
-
-		for (Disciplina disciplina : buscarTodos) {
+		for (Disciplina disciplina : dao.buscarTodos()) {
 			System.out.println(disciplina);
 		}
-		
+
 		em.close();
+
 	}
 }
