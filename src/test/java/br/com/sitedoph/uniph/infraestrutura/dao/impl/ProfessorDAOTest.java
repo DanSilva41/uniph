@@ -2,8 +2,6 @@ package br.com.sitedoph.uniph.infraestrutura.dao.impl;
 
 import javax.persistence.EntityManager;
 
-import org.junit.Test;
-
 import br.com.sitedoph.uniph.dominio.entidade.Professor;
 import br.com.sitedoph.uniph.infraestrutura.persistencia.JPAUtil;
 import br.com.sitedoph.uniph.tests.BaseTest;

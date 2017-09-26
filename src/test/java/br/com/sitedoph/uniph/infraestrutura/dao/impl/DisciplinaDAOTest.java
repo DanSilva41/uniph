@@ -3,7 +3,6 @@ package br.com.sitedoph.uniph.infraestrutura.dao.impl;
 import javax.persistence.EntityManager;
 
 import org.hibernate.Session;
-import org.junit.Test;
 
 import br.com.sitedoph.uniph.dominio.entidade.Disciplina;
 import br.com.sitedoph.uniph.infraestrutura.persistencia.JPAUtil;

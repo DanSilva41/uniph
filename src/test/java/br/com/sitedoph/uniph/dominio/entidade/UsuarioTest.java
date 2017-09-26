@@ -5,8 +5,6 @@ import java.util.Set;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 
-import org.junit.Test;
-
 import br.com.sitedoph.uniph.infraestrutura.validacao.util.ValidadorUtil;
 import junit.framework.Assert;
 
