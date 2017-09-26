@@ -16,25 +16,50 @@
 		<h:panelGrid columns="2">
 
 			<h:outputLabel for="nome" value="Nome:" />
-			<h:inputText id="nome" 
-			value="#{usuarioBean.usuario.nomeCompleto}" />
+			<h:inputText id="nome" value="#{usuarioBean.usuario.nomeCompleto}" />
 
 			<h:outputLabel for="login" value="Login" />
-			<h:inputText id="login"
-			value="#{usuarioBean.usuario.login}" />
+			<h:inputText id="login" value="#{usuarioBean.usuario.login}" />
 
 			<h:outputLabel for="email" value="E-mail" />
-			<h:inputText id="email" 
-			value="#{usuarioBean.usuario.email}" />
+			<h:inputText id="email" value="#{usuarioBean.usuario.email}" />
 
 			<h:outputLabel for="senha" value="Senha" />
-			<h:inputSecret id="senha" 
-			value="#{usuarioBean.usuario.senha}" />
+			<h:inputSecret id="senha" value="#{usuarioBean.usuario.senha}" />
 
-			<h:commandButton value="Gravar" 
-			action="#{usuarioBean.gravar()}" />
+			<h:commandButton value="Gravar" action="#{usuarioBean.gravar()}" />
 
 		</h:panelGrid>
+		
+		<h:dataTable var="usuario" value="#{usuarioBean.usuarios}">
+			
+			<h:column>
+				<f:facet name="header">Nome:</f:facet>
+				#{usuario.nomeCompleto}			
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Login:</f:facet>
+				#{usuario.login}			
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">E-mail:</f:facet>
+				#{usuario.email}			
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Senha:</f:facet>
+				#{usuario.senha}			
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Excluir</f:facet>
+				<h:commandLink 
+				action="#{usuarioBean.remover(usuario)}" value="Remover" />
+			</h:column>
+		
+		</h:dataTable>
 	</h:form>
 
 </f:view>
