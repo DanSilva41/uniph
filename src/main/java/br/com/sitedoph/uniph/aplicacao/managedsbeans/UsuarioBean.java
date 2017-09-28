@@ -20,31 +20,38 @@ public class UsuarioBean implements Serializable {
 	private Usuario usuario = new Usuario();
 	private Collection<Usuario> usuarios;
 
-	private UsuarioService service = new UsuarioService();
-
 	public void gravar() {
 		
 		try {
-			service.salvarOuAtualizar(usuario);
+			new UsuarioService().salvarOuAtualizar(usuario);
 			limpar();
-			usuarios = service.buscarTodos();
+			usuarios = new UsuarioService().buscarTodos();
 			MensagensUtil.info("Usuário foi CADASTRADO com sucesso!");
-		} catch(ConstraintViolationException e) {
-			MensagensUtil.adicionarMensagemDeValidacao(e);
-		} catch(org.hibernate.exception.ConstraintViolationException e) {
-			MensagensUtil.error("Login ou endereço de e-mail em uso!");
+		} catch(Exception e) {
+			
+			if (e.getCause() instanceof ConstraintViolationException) {
+				
+				MensagensUtil.adicionarMensagemDeValidacao((ConstraintViolationException) e.getCause());
+			
+			} else if (e.getCause() instanceof org.hibernate.exception.ConstraintViolationException) {
+				
+				MensagensUtil.error("Login ou endereço de e-mail em uso!");
+				
+			} else {
+				throw e;
+			}
 		}
 	}
 
 	public void remover(Usuario usuario) {
-		service.excluir(usuario);
-		usuarios = service.buscarTodos();
+		new UsuarioService().excluir(usuario);
+		usuarios = new UsuarioService().buscarTodos();
 	}
 
 	public Collection<Usuario> getUsuarios() {
 
 		if (usuarios == null) {
-			usuarios = service.buscarTodos();
+			usuarios = new UsuarioService().buscarTodos();
 		}
 
 		return usuarios;

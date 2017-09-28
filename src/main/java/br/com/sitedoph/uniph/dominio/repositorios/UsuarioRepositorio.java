@@ -81,7 +81,10 @@ public class UsuarioRepositorio {
 			usuario = DAO.salvarOuAtualizar(usuario);
 			em.getTransaction().commit();
 		} catch (ConstraintViolationException | PersistenceException e) {
-			em.getTransaction().rollback();
+			
+			if(em.getTransaction().isActive()) {
+				em.getTransaction().rollback();
+			}
 			throw e;
 		} finally {
 			em.close();
