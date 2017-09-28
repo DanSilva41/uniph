@@ -21,22 +21,22 @@ public class UsuarioBean implements Serializable {
 	private Collection<Usuario> usuarios;
 
 	public void gravar() {
-		
+
 		try {
 			new UsuarioService().salvarOuAtualizar(usuario);
 			limpar();
 			usuarios = new UsuarioService().buscarTodos();
 			MensagensUtil.info("Usuário foi CADASTRADO com sucesso!");
-		} catch(Exception e) {
-			
+		} catch (Exception e) {
+
 			if (e.getCause() instanceof ConstraintViolationException) {
-				
+
 				MensagensUtil.adicionarMensagemDeValidacao((ConstraintViolationException) e.getCause());
-			
+
 			} else if (e.getCause() instanceof org.hibernate.exception.ConstraintViolationException) {
-				
+
 				MensagensUtil.error("Login ou endereço de e-mail em uso!");
-				
+
 			} else {
 				throw e;
 			}
