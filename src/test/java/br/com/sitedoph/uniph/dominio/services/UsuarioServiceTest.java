@@ -23,9 +23,7 @@ public class UsuarioServiceTest extends BaseTest {
 
 		user = service.salvarOuAtualizar(user);
 
-		for (Usuario usuario : service.buscarTodos()) {
-			System.out.println(usuario);
-		}
+		service.buscarTodos().forEach(System.out::println);
 	}
 
 }

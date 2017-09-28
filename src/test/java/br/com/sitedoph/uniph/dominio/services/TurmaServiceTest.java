@@ -38,8 +38,6 @@ public class TurmaServiceTest extends BaseTest {
 
 		turma = service.salvarOuAtualizar(turma);
 
-		for (Turma turmaExibir : service.buscarTodos()) {
-			System.out.println(turmaExibir);
-		}
+		service.buscarTodos().forEach(System.out::println);
 	}
 }

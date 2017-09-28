@@ -43,10 +43,7 @@ public class TurmaDAOTest extends BaseTest {
 		sala = dao.salvarOuAtualizar(sala);
 		em.getTransaction().commit();
 
-		// Forma simplificada
-		for (Turma turma : dao.buscarTodos()) {
-			System.out.println(turma);
-		}
+		dao.buscarTodos().forEach(System.out::println);
 
 		em.close();
 	}

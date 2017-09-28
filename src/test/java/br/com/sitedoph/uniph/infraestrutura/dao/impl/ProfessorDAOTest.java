@@ -35,9 +35,7 @@ public class ProfessorDAOTest extends BaseTest {
 
 		em.getTransaction().commit();
 
-		for (Professor professor : dao.buscarTodos()) {
-			System.out.println(professor);
-		}
+		dao.buscarTodos().forEach(System.out::println);
 
 		em.close();
 	}

@@ -20,9 +20,7 @@ public class UsuarioRepositorioTest extends BaseTest {
 
 		user = repo.salvarOuAtualizar(user);
 
-		for (Usuario usuario : repo.buscarTodos()) {
-			System.out.println(usuario);
-		}
+		repo.buscarTodos().forEach(System.out::println);
 	}
 
 }
