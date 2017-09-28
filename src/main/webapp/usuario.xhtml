@@ -21,96 +21,101 @@
 	</div>
 
 	<h:form>
+		<fieldset> 
+			<legend>
 
-		<h:inputHidden value="#{usuarioBean.usuario.id}" />
+				<h:outputText value="Novo usuário"
+					rendered="#{empty usuarioBean.usuario.id}" />
+	
+				<h:outputText value="Editar usuário"
+					rendered="#{not empty usuarioBean.usuario.id}" />
+			</legend>
 
-		<h2>
-
-			<h:outputText value="Novo usuário"
-				rendered="#{empty usuarioBean.usuario.id}" />
-
-			<h:outputText value="Editar usuário"
-				rendered="#{not empty usuarioBean.usuario.id}" />
-
-		</h2>
-
-		<h:panelGrid columns="2">
-
-			<h:outputLabel for="nome" value="Nome:" />
-			<h:inputText id="nome" value="#{usuarioBean.usuario.nomeCompleto}">
-				<f:ajax execute="@this" />
-			</h:inputText>
-
-			<h:outputLabel for="login" value="Login" />
-			<h:inputText id="login" value="#{usuarioBean.usuario.login}">
-				<f:ajax execute="@this" />
-			</h:inputText>
-
-			<h:outputLabel for="email" value="E-mail" />
-			<h:inputText id="email" value="#{usuarioBean.usuario.email}">
-				<f:ajax execute="@this" />
-			</h:inputText>
-
-			<h:outputLabel for="senha" value="Senha" />
-			<h:inputSecret id="senha" value="#{usuarioBean.usuario.senha}">
-				<f:ajax execute="@this" />
-			</h:inputSecret>
-
-			<h:commandButton value="Gravar" action="#{usuarioBean.gravar}">
-				<f:ajax render="@form" execute="@form" />
-			</h:commandButton>
-
-			<h:commandButton value="Cancelar" action="#{usuarioBean.cancelar}" />
-
-		</h:panelGrid>
-
-		<h:dataTable var="usuario" value="#{usuarioBean.usuarios}">
-
-			<h:column>
-				<f:facet name="header">#</f:facet>
-					#{usuario.id}
-			</h:column>
-
-			<h:column>
-				<f:facet name="header">Nome:</f:facet>
-					#{usuario.nomeCompleto}			
-			</h:column>
-
-			<h:column>
-				<f:facet name="header">Login:</f:facet>
-					#{usuario.login}			
-			</h:column>
-
-			<h:column>
-				<f:facet name="header">E-mail:</f:facet>
-					#{usuario.email}			
-			</h:column>
-
-			<h:column>
-				<f:facet name="header">Senha:</f:facet>
-					#{usuario.senha}			
-			</h:column>
-
-			<h:column>
-				<f:facet name="header">Editar</f:facet>
-				<h:commandLink value="editar">
-					<f:setPropertyActionListener value="#usuario"
-						target="#{usuarioBean.usuario}" />
-				</h:commandLink>
-			</h:column>
-
-			<h:column>
-				<f:facet name="header">Excluir</f:facet>
-				<h:commandLink value="Remover"
-					action="#{usuarioBean.remover(usuario)}">
-
-					<f:ajax render="@form" />
-
-				</h:commandLink>
-			</h:column>
-
-		</h:dataTable>
-
+			<h:inputHidden value="#{usuarioBean.usuario.id}" />
+			 
+			<h:panelGrid columns="2">
+	
+				<h:outputLabel for="nome" value="Nome:" />
+				<h:inputText id="nome" value="#{usuarioBean.usuario.nomeCompleto}">
+					<f:ajax execute="@this" />
+				</h:inputText>
+	
+				<h:outputLabel for="login" value="Login" />
+				<h:inputText id="login" value="#{usuarioBean.usuario.login}">
+					<f:ajax execute="@this" />
+				</h:inputText>
+	
+				<h:outputLabel for="email" value="E-mail" />
+				<h:inputText id="email" value="#{usuarioBean.usuario.email}">
+					<f:ajax execute="@this" />
+				</h:inputText>
+	
+				<h:outputLabel for="senha" value="Senha" />
+				<h:inputSecret id="senha" value="#{usuarioBean.usuario.senha}">
+					<f:ajax execute="@this" />
+				</h:inputSecret>
+	
+				<h:commandButton value="Gravar" action="#{usuarioBean.gravar}">
+					<f:ajax render="@form" execute="@form" />
+				</h:commandButton>
+	
+				<h:commandButton value="Cancelar" action="#{usuarioBean.cancelar}" />
+	
+			</h:panelGrid> 
+		
+		</fieldset>
+		
+		<fieldset>
+		
+			<legend>Lista de Usuários</legend>
+			
+			<h:dataTable var="usuario" value="#{usuarioBean.usuarios}">
+	
+				<h:column>
+					<f:facet name="header">#</f:facet>
+						#{usuario.id}
+				</h:column>
+	
+				<h:column>
+					<f:facet name="header">Nome:</f:facet>
+						#{usuario.nomeCompleto}			
+				</h:column>
+	
+				<h:column>
+					<f:facet name="header">Login:</f:facet>
+						#{usuario.login}			
+				</h:column>
+	
+				<h:column>
+					<f:facet name="header">E-mail:</f:facet>
+						#{usuario.email}			
+				</h:column>
+	
+				<h:column>
+					<f:facet name="header">Senha:</f:facet>
+						#{usuario.senha}			
+				</h:column>
+	
+				<h:column>
+					<f:facet name="header">Editar</f:facet>
+					<h:commandLink value="editar">
+						<f:setPropertyActionListener value="#usuario"
+							target="#{usuarioBean.usuario}" />
+					</h:commandLink>
+				</h:column>
+	
+				<h:column>
+					<f:facet name="header">Excluir</f:facet>
+					<h:commandLink value="Remover"
+						action="#{usuarioBean.remover(usuario)}">
+	
+						<f:ajax render="@form" />
+	
+					</h:commandLink>
+				</h:column>
+	
+			</h:dataTable>
+		</fieldset>
 	</h:form>
 </f:view>
 </html>
