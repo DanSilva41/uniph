@@ -38,6 +38,13 @@
 			<version>5.2.3.Final</version>
 		</dependency>
 
+		<!-- Weld -->
+		<dependency>
+			<groupId>org.jboss.weld.servlet</groupId>
+			<artifactId>weld-servlet</artifactId>
+			<version>2.4.5.Final</version>
+			<scope>compile</scope>
+		</dependency>
 
 		<!-- Mysql 5.1.6 -->
 		<dependency>
@@ -64,6 +71,19 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
+		</dependency>
+
+		<dependency>
+			<groupId>br.com.six2six</groupId>
+			<artifactId>fixture-factory</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.unitils</groupId>
+			<artifactId>unitils-core</artifactId>
+			<version>3.4.2</version>
+			<scope>test</scope>
 		</dependency>
 
 		<!-- JSF -->
@@ -105,19 +125,6 @@
 			<artifactId>bootstrap</artifactId>
 			<version>1.0.10</version>
 			<scope>compile</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>br.com.six2six</groupId>
-			<artifactId>fixture-factory</artifactId>
-			<version>3.1.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.unitils</groupId>
-			<artifactId>unitils-core</artifactId>
-			<version>3.4.2</version>
-			<scope>test</scope>
 		</dependency>
 
 	</dependencies>
