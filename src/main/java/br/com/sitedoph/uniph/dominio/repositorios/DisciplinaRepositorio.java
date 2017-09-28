@@ -3,6 +3,8 @@ package br.com.sitedoph.uniph.dominio.repositorios;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceException;
+import javax.validation.ConstraintViolationException;
 
 import br.com.sitedoph.uniph.dominio.entidades.Disciplina;
 import br.com.sitedoph.uniph.infraestrutura.dao.impl.DisciplinaDAO;
@@ -78,8 +80,7 @@ public class DisciplinaRepositorio {
 		try {
 			DAO.salvarOuAtualizar(disciplina);
 			em.getTransaction().commit();
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (ConstraintViolationException | PersistenceException e) {
 			em.getTransaction().rollback();
 			throw e;
 		} finally {
