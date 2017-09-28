@@ -5,6 +5,8 @@ import java.util.Set;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 
+import org.junit.Test;
+
 import br.com.sitedoph.uniph.infraestrutura.validacao.util.ValidadorUtil;
 import junit.framework.Assert;
 
@@ -19,9 +21,8 @@ public class UsuarioTest {
 
 		Set<ConstraintViolation<Usuario>> violacoes = validador.validate(xpto);
 
-		for (ConstraintViolation<Usuario> constraintViolation : violacoes) {
-			System.out.println(constraintViolation);
-		}
+		//Expressãp lambda
+		violacoes.forEach(System.out::println);
 
 		Assert.assertEquals(4, violacoes.size());
 	}

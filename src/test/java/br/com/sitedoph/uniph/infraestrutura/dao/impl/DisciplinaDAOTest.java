@@ -32,9 +32,7 @@ public class DisciplinaDAOTest extends BaseTest {
 		disciplina1 = dao.salvarOuAtualizar(disciplina1);
 		em.getTransaction().commit();
 
-		for (Disciplina disciplina : dao.buscarTodos()) {
-			System.out.println(disciplina);
-		}
+		dao.buscarTodos().forEach(System.out::println);
 
 		em.close();
 

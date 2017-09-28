@@ -34,9 +34,7 @@ public class UsuarioDAOTest extends BaseTest {
 
 		em.getTransaction().commit();
 
-		for (Usuario usuario : dao.buscarTodos()) {
-			System.out.println(usuario);
-		}
+		dao.buscarTodos().forEach(System.out::println);
 
 		em.close();
 	}

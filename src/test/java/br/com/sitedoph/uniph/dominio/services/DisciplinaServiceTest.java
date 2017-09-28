@@ -33,8 +33,6 @@ public class DisciplinaServiceTest extends BaseTest {
 
 		materia = service.salvarOuAtualizar(materia);
 
-		for (Disciplina disciplinaExibir : service.buscarTodos()) {
-			System.out.println(disciplinaExibir);
-		}
+		service.buscarTodos().forEach(System.out::println);
 	}
 }

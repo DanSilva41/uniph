@@ -33,8 +33,6 @@ public class DisciplinaRepositorioTest extends BaseTest {
 
 		materia = repo.salvarOuAtualizar(materia);
 
-		for (Disciplina disciplinaExibir : repo.buscarTodos()) {
-			System.out.println(disciplinaExibir);
-		}
+		repo.buscarTodos().forEach(System.out::println);
 	}
 }

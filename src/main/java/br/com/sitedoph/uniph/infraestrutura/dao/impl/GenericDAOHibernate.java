@@ -67,8 +67,7 @@ public class GenericDAOHibernate<T, ID extends Serializable> implements GenericD
 	}
 
 	private Session getHibernateSession() {
-		final Session session = (Session) ENTITY_MANAGER.getDelegate();
-		return session;
+		return (Session) ENTITY_MANAGER.getDelegate();
 	}
 
 	@Override

@@ -31,9 +31,7 @@ public class AlunoDAOTest extends BaseTest {
 
 		em.getTransaction().commit();
 
-		for (Aluno aluno : dao.buscarTodos()) {
-			System.out.println(aluno);
-		}
+		dao.buscarTodos().forEach(System.out::println);
 
 		em.close();
 	}

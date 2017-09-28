@@ -20,8 +20,6 @@ public class ProfessorRepositorioTest extends BaseTest {
 
 		teacher = repo.salvarOuAtualizar(teacher);
 
-		for (Professor professor : repo.buscarTodos()) {
-			System.out.println(professor);
-		}
+		repo.buscarTodos().forEach(System.out::println);
 	}
 }

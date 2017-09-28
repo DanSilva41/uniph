@@ -51,9 +51,7 @@ public class PersistenciaTest {
 
 		List<Aluno> lista = query.getResultList();
 
-		for (Aluno a : lista) {
-			System.out.println(a.getNomeCompleto());
-		}
+		lista.forEach(System.out::println);
 
 		em.close();
 	}

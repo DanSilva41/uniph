@@ -24,8 +24,6 @@ public class TurmaRepositorioTest extends BaseTest {
 
 		turma = repo.salvarOuAtualizar(turma);
 
-		for (Turma turmaExibir : repo.buscarTodos()) {
-			System.out.println(turmaExibir);
-		}
+		repo.buscarTodos().forEach(System.out::println);
 	}
 }

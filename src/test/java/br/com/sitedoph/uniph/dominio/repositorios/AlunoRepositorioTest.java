@@ -21,8 +21,6 @@ public class AlunoRepositorioTest extends BaseTest {
 
 		estudante = repo.salvarOuAtualizar(estudante);
 
-		for (Aluno alunos : repo.buscarTodos()) {
-			System.out.println(alunos);
-		}
+		repo.buscarTodos().forEach(System.out::println);
 	}
 }

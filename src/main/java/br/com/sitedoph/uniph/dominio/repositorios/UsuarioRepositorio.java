@@ -3,6 +3,8 @@ package br.com.sitedoph.uniph.dominio.repositorios;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceException;
+import javax.validation.ConstraintViolationException;
 
 import br.com.sitedoph.uniph.dominio.entidades.Usuario;
 import br.com.sitedoph.uniph.infraestrutura.dao.impl.UsuarioDAO;
@@ -78,9 +80,11 @@ public class UsuarioRepositorio {
 		try {
 			usuario = DAO.salvarOuAtualizar(usuario);
 			em.getTransaction().commit();
-		} catch (Exception e) {
-			e.printStackTrace();
-			em.getTransaction().rollback();
+		} catch (ConstraintViolationException | PersistenceException e) {
+			
+			if(em.getTransaction().isActive()) {
+				em.getTransaction().rollback();
+			}
 			throw e;
 		} finally {
 			em.close();
