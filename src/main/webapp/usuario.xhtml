@@ -5,7 +5,20 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Universidade PH</title>
+
+	<h:outputStylesheet library="css" name="uniph.css" />
+</h:head>
+
 <f:view>
+
+	<div id="cabecalho">
+
+		<h:graphicImage id="logo" library="imagens" name="logo.png" />
+
+	</div>
 
 	<h:form>
 
@@ -24,26 +37,26 @@
 		<h:panelGrid columns="2">
 
 			<h:outputLabel for="nome" value="Nome:" />
-			<h:inputText id="nome" value="#{usuarioBean.usuario.nomeCompleto}" >
+			<h:inputText id="nome" value="#{usuarioBean.usuario.nomeCompleto}">
 				<f:ajax execute="@this" />
 			</h:inputText>
 
 			<h:outputLabel for="login" value="Login" />
-			<h:inputText id="login" value="#{usuarioBean.usuario.login}" >
+			<h:inputText id="login" value="#{usuarioBean.usuario.login}">
 				<f:ajax execute="@this" />
 			</h:inputText>
 
 			<h:outputLabel for="email" value="E-mail" />
-			<h:inputText id="email" value="#{usuarioBean.usuario.email}" >
+			<h:inputText id="email" value="#{usuarioBean.usuario.email}">
 				<f:ajax execute="@this" />
 			</h:inputText>
 
 			<h:outputLabel for="senha" value="Senha" />
-			<h:inputSecret id="senha" value="#{usuarioBean.usuario.senha}" >
+			<h:inputSecret id="senha" value="#{usuarioBean.usuario.senha}">
 				<f:ajax execute="@this" />
 			</h:inputSecret>
 
-			<h:commandButton value="Gravar" action="#{usuarioBean.gravar}" >
+			<h:commandButton value="Gravar" action="#{usuarioBean.gravar}">
 				<f:ajax render="@form" execute="@form" />
 			</h:commandButton>
 
@@ -85,14 +98,14 @@
 						target="#{usuarioBean.usuario}" />
 				</h:commandLink>
 			</h:column>
-			
+
 			<h:column>
 				<f:facet name="header">Excluir</f:facet>
 				<h:commandLink value="Remover"
 					action="#{usuarioBean.remover(usuario)}">
 
 					<f:ajax render="@form" />
-					
+
 				</h:commandLink>
 			</h:column>
 
