@@ -14,6 +14,8 @@ import org.hibernate.criterion.MatchMode;
 
 public class GenericDAOHibernate<T> implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+
 	private final Class<T> CLASSE;
 
 	private final EntityManager entityManager;
