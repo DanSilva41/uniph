@@ -82,8 +82,4 @@ public class GenericDAOHibernate<T> implements Serializable {
 		return criteria.list();
 	}
 
-	public EntityManager getEntityManager() {
-		return entityManager;
-	}
-
 }

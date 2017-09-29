@@ -3,44 +3,34 @@ package br.com.sitedoph.uniph.infraestrutura.dao.impl;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.persistence.EntityManager;
 
 import br.com.sitedoph.uniph.dominio.entidades.Usuario;
 import br.com.sitedoph.uniph.dominio.repositorios.UsuarioRepositorio;
 
-public class UsuarioDAO implements UsuarioRepositorio {
+public class UsuarioDAO extends GenericDAOHibernate<Usuario> implements UsuarioRepositorio {
+
+	private EntityManager entityManager;
 
 	@Inject
-	private GenericDAOHibernate<Usuario> genericDAOHibernate;
-
-	public Usuario buscarPorId(Long id) {
-		return genericDAOHibernate.buscarPorId(id);
+	public UsuarioDAO(EntityManager entityManager) {
+		super(Usuario.class, entityManager);
+		this.entityManager = entityManager;
 	}
-
+	
 	public Usuario buscarPorLoginESenha(String login, String senha) {
 
 		Usuario exemplo = new Usuario();
 		exemplo.setLogin(login);
 		exemplo.setSenha(senha);
 
-		List<Usuario> list = genericDAOHibernate.buscarPorExemplo(exemplo);
+		List<Usuario> list = buscarPorExemplo(exemplo);
 
 		if (list != null && !list.isEmpty()) {
 			return list.get(0);
 		} else {
 			return null;
 		}
-	}
-
-	public List<Usuario> buscarTodos() {
-		return genericDAOHibernate.buscarTodos();
-	}
-
-	public void excluir(Usuario usuario) {
-		genericDAOHibernate.excluir(usuario);
-	}
-
-	public Usuario salvarOuAtualizar(Usuario usuario) {
-		return genericDAOHibernate.salvarOuAtualizar(usuario);
 	}
 
 }
