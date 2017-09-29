@@ -93,6 +93,8 @@
 					
 					<p:commandLink action="#{usuarioBean.remover(usuario)}" process="@form" update="@form" immediate="true">
 						<i class="fa fa-trash"></i>
+						<p:confirm header="Confirmação de Exclusão"
+                                   message="Você tem certeza que quer excluir esse usuário?" icon="ui-icon-alert"/>
 					</p:commandLink>
 				</p:column>
 				

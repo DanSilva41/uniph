@@ -66,6 +66,13 @@
 			<artifactId>hibernate-c3p0</artifactId>
 			<version>5.2.9.Final</version>
 		</dependency>
+		
+		<!--Utilitários-->
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.6</version>
+        </dependency>
 
 		<!-- Testes - Junit -->
 		<dependency>
