@@ -6,6 +6,7 @@
 	<artifactId>uniph</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
+
 	<name>UniPH</name>
 	<description>Projeto desenvolvido no curso de Java para Web</description>
 
