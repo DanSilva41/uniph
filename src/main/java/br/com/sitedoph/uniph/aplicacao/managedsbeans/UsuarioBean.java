@@ -37,7 +37,11 @@ public class UsuarioBean implements Serializable {
 		usuarioService.excluir(usuario);
 		usuarios = usuarioService.buscarTodos();
 	}
-
+	
+	public void limparFormulario() {
+		this.usuario = new Usuario();
+	}
+	
 	public Collection<Usuario> getUsuarios() {
 		if (usuarios == null) {
 			usuarios = usuarioService.buscarTodos();

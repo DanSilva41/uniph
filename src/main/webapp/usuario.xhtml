@@ -8,7 +8,7 @@
 	<ui:define name="content">
 		<h1 class="uniph-titulo-pagina">Usuário</h1>
 
-		<h:form id="frm">
+		<h:form id="form">
 
 			<p:messages autoUpdate="false" />
 			<p:growl autoUpdate="false" />
@@ -37,7 +37,9 @@
 			<p:toolbar style="margin-top: 20px; margin-bottom: 40px">
 				<p:toolbarGroup>
 					<p:commandButton value="Salvar" action="#{usuarioBean.salvar}"
-						update="@form" />
+									 update="@form" />
+					<p:commandButton value="Limpar" action="#{usuarioBean.limparFormulario()}"
+									update="@form" immediate="true"/>
 				</p:toolbarGroup>
 			</p:toolbar>
 			
@@ -48,29 +50,35 @@
 				
 					<h:column>
 						<f:facet name="header">#</f:facet>
-						##{usuario.id}
+						#{usuario.id}
 					</h:column>
 					
 					<h:column>
 						<f:facet name="header">Nome</f:facet>
-						##{usuario.nomeCompleto}
+						#{usuario.nomeCompleto}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">E-mail</f:facet>
+						#{usuario.email}
 					</h:column>
 					
 					<h:column>
 						<f:facet name="header">Login</f:facet>
-						##{usuario.login}
+						#{usuario.login}
 					</h:column>
 					
 					<h:column>
 						<f:facet name="header">Senha</f:facet>
-						##{usuario.senha}
+						#{usuario.senha}
 					</h:column>
 					
 					<h:column>
 						<f:facet name="header">Editar:</f:facet>
 						<h:commandLink value="editar" immediate="true">
 							<f:setPropertyActionListener value="#{usuario}" 
-								target="#{usuarioBean.usuario}" />
+														target="#{usuarioBean.usuario}" />
+							<f:ajax render="@form"/>
 						</h:commandLink>
 					</h:column>
 					
