@@ -1,5 +1,6 @@
 package br.com.sitedoph.uniph.aplicacao.listeners;
 
+import javax.faces.application.NavigationHandler;
 import javax.faces.context.FacesContext;
 import javax.faces.event.PhaseEvent;
 import javax.faces.event.PhaseId;
@@ -21,11 +22,19 @@ public class AutorizadorListener implements PhaseListener {
 		LoginBean loginBean = contexto.getApplication().evaluateExpressionGet(contexto, "#{loginBean}",
 				LoginBean.class);
 
+		if (!loginBean.isLogado()) {
+			NavigationHandler gerente = contexto.getApplication().getNavigationHandler();
+
+			gerente.handleNavigation(contexto, null, "login?faces-redirect=true");
+
+			contexto.renderResponse();
+		}
+
 	}
 
 	@Override
 	public void beforePhase(PhaseEvent arg0) {
-		// TODO Auto-generated method stub
+		// intencionalmente deixado em branco!
 
 	}
 
