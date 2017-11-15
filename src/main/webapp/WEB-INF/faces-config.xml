@@ -12,4 +12,8 @@
 		</locale-config>
 	</application>
 
+	<lifecycle>
+		<phase-listener>br.com.sitedoph.uniph.aplicacao.listeners.AutorizadorListener</phase-listener>
+	</lifecycle>
+
 </faces-config>

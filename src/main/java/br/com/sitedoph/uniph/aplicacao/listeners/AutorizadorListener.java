@@ -10,6 +10,8 @@ import br.com.sitedoph.uniph.aplicacao.managedsbeans.LoginBean;
 
 public class AutorizadorListener implements PhaseListener {
 
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	public void afterPhase(PhaseEvent evento) {
 
