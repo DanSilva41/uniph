@@ -6,8 +6,8 @@ import java.util.Date;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -17,7 +17,7 @@ import br.com.sitedoph.uniph.dominio.entidades.Aluno;
 import br.com.sitedoph.uniph.dominio.services.AlunoService;
 
 @Named
-@ManagedBean
+@ViewScoped
 public class AlunoBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -38,7 +38,7 @@ public class AlunoBean implements Serializable {
 		aluno.setDataDeNascimento(DateUtils.toCalendar(dataUtilNascimento));
 
 		alunoService.salvarOuAtualizar(aluno);
-		aluno = new Aluno();
+		limpar();
 		alunos = alunoService.buscarTodos();
 
 		FacesMessage mensagem;

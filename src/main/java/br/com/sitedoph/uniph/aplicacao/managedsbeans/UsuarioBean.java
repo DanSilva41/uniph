@@ -26,35 +26,35 @@ public class UsuarioBean implements Serializable {
 	private List<Usuario> usuarios;
 
 	public void salvar() {
-		
+
 		boolean edicao = usuario.getId() != null;
-		
+
 		usuarioService.salvarOuAtualizar(usuario);
-		usuario = new Usuario();
+		limpar();
 		usuarios = usuarioService.buscarTodos();
-		
+
 		FacesMessage mensagem;
 		if (edicao) {
 			mensagem = new FacesMessage("Usuário alterado com sucesso!");
 		} else {
 			mensagem = new FacesMessage("Usuário cadastrado com sucesso!");
 		}
-		
+
 		FacesContext.getCurrentInstance().addMessage(null, mensagem);
 	}
 
 	public void remover(Usuario usuario) {
 		usuarioService.excluir(usuario);
 		usuarios = usuarioService.buscarTodos();
-		
+
 		FacesMessage mensagem = new FacesMessage("Usuário excluído com sucesso!");
 		FacesContext.getCurrentInstance().addMessage(null, mensagem);
 	}
-	
+
 	public void limpar() {
 		this.usuario = new Usuario();
 	}
-	
+
 	public Collection<Usuario> getUsuarios() {
 		if (usuarios == null) {
 			usuarios = usuarioService.buscarTodos();

@@ -1,5 +1,6 @@
 package br.com.sitedoph.uniph.dominio.entidades;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
 import javax.persistence.Entity;
@@ -17,19 +18,21 @@ import org.hibernate.validator.constraints.br.CPF;
 
 @Entity
 @Table(name = "TB_ALUNO")
-public class Aluno {
+public class Aluno implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue
 	private Long id;
 
-	@NotBlank(message = "Preencha o nome completo!")
+	@NotBlank(message = ": Preencha o nome completo!")
 	private String nomeCompleto;
 
 	private String rg;
 
-	@CPF(message = "CPF inváĺido")
-	@NotBlank(message = "Preencha o CPF!")
+	@CPF(message = ": Inváĺido")
+	@NotBlank(message = ": Preencha o CPF!")
 	private String cpf;
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -40,8 +43,8 @@ public class Aluno {
 
 	private String telefone;
 
-	@NotBlank(message = "Preenche o e-mail!")
-	@Email(message = "Endereço de e-mail inválido")
+	@NotBlank(message = ": Preencha o e-mail!")
+	@Email(message = ": Endereço de e-mail inválido")
 	private String email;
 
 	@Enumerated(EnumType.ORDINAL)
