@@ -1,6 +1,7 @@
 package br.com.sitedoph.uniph.dominio.entidades;
 
 import java.util.Calendar;
+import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -107,5 +108,20 @@ public class Professor {
 				+ (telefone != null ? "\nTelefone = " + telefone + ";" : "")
 				+ (email != null ? "\nE-mail = " + email + ";" : "")
 				+ (curriculo != null ? "\nCurrículo = " + curriculo + ";" : "");
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
+		Professor professor = (Professor) o;
+		return Objects.equals(id, professor.id);
 	}
 }
