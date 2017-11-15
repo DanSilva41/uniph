@@ -30,7 +30,7 @@ public class AlunoBean implements Serializable {
 
 	private Date dataUtilCadastro = new Date();
 	private Date dataUtilNascimento;
-	private String filtro;
+	private String filtro = "";
 
 	public void salvar() {
 		boolean edicao = aluno.getId() != null;

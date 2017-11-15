@@ -35,16 +35,16 @@
 			
 			<br/>
 			
-			<p:outputLabel for="turmas" value="Disciplinas:" />
-			<p:selectManyCheckbox id="turmas" value="#{turmaBean.turma.disciplinas}" layout="responsive" columns="4">
-				<f:selectItems value="#{turmaBean.disciplinas}" var="discplina"
-								itemLabel="#{discplina.descricao}" itemValue="#{discplina}"/>
+			<p:outputLabel for="disciplinas-select" value="Disciplinas:" />
+			<p:selectManyCheckbox id="disciplinas-select" value="#{turmaBean.turma.disciplinas}" layout="responsive" columns="4">
+				<f:selectItems value="#{turmaBean.disciplinas}" var="disciplina"
+								itemLabel="#{disciplina.descricao}" itemValue="#{disciplina}"/>
 			</p:selectManyCheckbox>
 			
 			<br/>
 			
-			<p:outputLabel for="alunos" value="Alunos:"/>
-			<p:selectManyCheckbox id="alunos" value="#{turmaBean.turma.alunos}" layout="responsive" columns="4">
+			<p:outputLabel for="alunos-select" value="Alunos:"/>
+			<p:selectManyCheckbox id="alunos-select" value="#{turmaBean.turma.alunos}" layout="responsive" columns="4">
 				<f:selectItems value="#{turmaBean.alunos}" var="aluno"
 								itemLabel="#{aluno.nomeCompleto}" itemValue="#{aluno}"/>
 			</p:selectManyCheckbox>
@@ -52,7 +52,7 @@
 			<p:toolbar style="margin-top: 20px; margin-bottom: 40px">
 				<p:toolbarGroup>
 					<p:commandButton value="Salvar" action="#{turmaBean.salvar}"
-						process="@this panel-grid-turma" update="@form" />
+						process="@this panel-grid-turma alunos-select disciplinas-select" update="@form" />
 
 					<p:commandButton actionListener="#{turmaBean.limpar}"
 						value="Limpar" update="panel-grid-turma" process="@this"
@@ -100,6 +100,20 @@
 
 				<p:column headerText="Horário">
 					<h:outputText value="#{turma.horario}" />
+				</p:column>
+				
+				<p:column headerText="Disciplinas">
+					<p:dataList value="#{turma.disciplinas}" var="disciplina" type="ordered" style="border: 0px;"
+										emptyMessage="Nenhuma Disciplina Cadastrada">
+						<h:outputText value="#{disciplina.descricao}" />
+					</p:dataList>
+				</p:column>
+				
+				<p:column headerText="Alunos">
+					<p:dataList value="#{turma.alunos}" var="aluno" type="ordered" style="border: 0px;"
+										emptyMessage="Nenhum Aluno Cadastrado">
+						<h:outputText value="#{aluno.nomeCompleto}" />
+					</p:dataList>
 				</p:column>
 
 				<p:column style="width: 20px;">

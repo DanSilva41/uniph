@@ -44,7 +44,7 @@ public class TurmaBean implements Serializable {
 		boolean edicao = turma.getId() != null;
 
 		turmaService.salvarOuAtualizar(turma);
-		turma = new Turma();
+		limpar();
 		turmas = turmaService.buscarTodos();
 
 		FacesMessage msg;

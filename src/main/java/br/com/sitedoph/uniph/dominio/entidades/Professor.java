@@ -111,11 +111,6 @@ public class Professor {
 	}
 
 	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
-
-	@Override
 	public boolean equals(Object o) {
 		if (this == o)
 			return true;
@@ -123,5 +118,10 @@ public class Professor {
 			return false;
 		Professor professor = (Professor) o;
 		return Objects.equals(id, professor.id);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
 	}
 }

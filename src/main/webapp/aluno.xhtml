@@ -96,17 +96,17 @@
                     <h:outputText value="#{aluno.id}"/>
                 </p:column>
 
-                <p:column headerText="Data de Cadastro">
+                <p:column headerText="Data de Cadastro" style="width: 70px;">
                     <h:outputText value="#{aluno.dataDeCadastro.time}">
                         <f:convertDateTime pattern="dd/MM/yyyy"/>
                     </h:outputText>
                 </p:column>
 
-                <p:column headerText="Nome" style="width: 20px;">
+                <p:column headerText="Nome" style="width: 120px;">
                     <h:outputText value="#{aluno.nomeCompleto}"/>
                 </p:column>
                 
-                <p:column headerText="Sexo">
+                <p:column headerText="Sexo" style="width: 90px;">
                 	<h:outputText value="#{aluno.sexo}" />
                 </p:column>
 
@@ -118,7 +118,7 @@
                     <h:outputText value="#{aluno.rg}"/>
                 </p:column>
 
-                <p:column headerText="E-mail" style="width: 15px;">
+                <p:column headerText="E-mail" style="width: 120px;">
                     <h:outputText value="#{aluno.email}"/>
                 </p:column>
 
@@ -126,7 +126,7 @@
                     <h:outputText value="#{aluno.telefone}"/>
                 </p:column>
 
-                <p:column headerText="Data de Nascimento">
+                <p:column headerText="Data de Nascimento" style="width: 70px;">
                     <h:outputText value="#{aluno.dataDeNascimento.time}">
                         <f:convertDateTime pattern="dd/MM/yyyy"/>
                     </h:outputText>

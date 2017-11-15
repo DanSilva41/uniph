@@ -1,7 +1,7 @@
 package br.com.sitedoph.uniph.dominio.entidades;
 
-import java.io.Serializable;
 import java.util.Calendar;
+import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -18,9 +18,7 @@ import org.hibernate.validator.constraints.br.CPF;
 
 @Entity
 @Table(name = "TB_ALUNO")
-public class Aluno implements Serializable {
-
-	private static final long serialVersionUID = 3482743718168045526L;
+public class Aluno {
 
 	@Id
 	@GeneratedValue
@@ -133,4 +131,20 @@ public class Aluno implements Serializable {
 				+ (email != null ? "\nE-mail = " + email + ";" : "")
 				+ (sexo != null ? "\nSexo = " + sexo.getDescricao() + ";" : "");
 	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || this.getClass() != o.getClass())
+			return false;
+		Aluno aluno = (Aluno) o;
+		return Objects.equals(this.id, aluno.id);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(this.id);
+	}
+
 }
