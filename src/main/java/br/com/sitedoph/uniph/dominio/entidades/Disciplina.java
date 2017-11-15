@@ -1,5 +1,7 @@
 package br.com.sitedoph.uniph.dominio.entidades;
 
+import java.util.Objects;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -62,6 +64,21 @@ public class Disciplina {
 				+ (descricao != null ? "\nDescrição = " + descricao + ";" : "")
 				+ (professor != null ? "\nProfessor = " + professor + ";" : "")
 				+ (cargaHoraria != null ? "\nCarga Horária = " + cargaHoraria + ";" : "");
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
+		Disciplina that = (Disciplina) o;
+		return Objects.equals(id, that.id);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
 	}
 
 }
