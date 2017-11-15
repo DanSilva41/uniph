@@ -1,6 +1,5 @@
 package br.com.sitedoph.uniph.infraestrutura.dao.impl;
 
-import java.io.Serializable;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -9,11 +8,11 @@ import javax.persistence.EntityManager;
 import br.com.sitedoph.uniph.dominio.entidades.Usuario;
 import br.com.sitedoph.uniph.dominio.repositorios.UsuarioRepositorio;
 
-public class UsuarioDAO extends GenericDAOHibernate<Usuario> implements UsuarioRepositorio, Serializable {
+public class UsuarioDAO extends GenericDAOHibernate<Usuario> implements UsuarioRepositorio {
 
 	private static final long serialVersionUID = 1L;
 
-	private EntityManager entityManager;
+	private final EntityManager entityManager;
 
 	@Inject
 	public UsuarioDAO(EntityManager entityManager) {
@@ -21,6 +20,7 @@ public class UsuarioDAO extends GenericDAOHibernate<Usuario> implements UsuarioR
 		this.entityManager = entityManager;
 	}
 
+	@Override
 	public Usuario buscarPorLoginESenha(String login, String senha) {
 
 		Usuario exemplo = new Usuario();

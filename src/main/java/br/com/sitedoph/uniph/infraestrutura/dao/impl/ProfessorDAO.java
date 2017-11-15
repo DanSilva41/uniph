@@ -1,6 +1,5 @@
 package br.com.sitedoph.uniph.infraestrutura.dao.impl;
 
-import java.io.Serializable;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -10,11 +9,11 @@ import javax.persistence.Query;
 import br.com.sitedoph.uniph.dominio.entidades.Professor;
 import br.com.sitedoph.uniph.dominio.repositorios.ProfessorRepositorio;
 
-public class ProfessorDAO extends GenericDAOHibernate<Professor> implements ProfessorRepositorio, Serializable {
+public class ProfessorDAO extends GenericDAOHibernate<Professor> implements ProfessorRepositorio {
 
 	private static final long serialVersionUID = 1L;
 
-	private EntityManager entityManager;
+	private final EntityManager entityManager;
 
 	@Inject
 	public ProfessorDAO(EntityManager entityManager) {

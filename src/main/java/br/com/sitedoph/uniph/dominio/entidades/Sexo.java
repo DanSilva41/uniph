@@ -29,14 +29,14 @@ public enum Sexo {
 	 *            o valor
 	 */
 
-	Sexo(final Integer chave, final String valor) {
+	Sexo(Integer chave, String valor) {
 		id = chave;
 		descricao = valor;
 	}
 
 	/*
 	 * Obtém a descricao
-	 * 
+	 *
 	 * @return a descricao
 	 */
 

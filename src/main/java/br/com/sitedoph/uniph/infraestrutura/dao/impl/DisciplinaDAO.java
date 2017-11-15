@@ -1,6 +1,5 @@
 package br.com.sitedoph.uniph.infraestrutura.dao.impl;
 
-import java.io.Serializable;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -10,11 +9,11 @@ import javax.persistence.Query;
 import br.com.sitedoph.uniph.dominio.entidades.Disciplina;
 import br.com.sitedoph.uniph.dominio.repositorios.DisciplinaRepositorio;
 
-public class DisciplinaDAO extends GenericDAOHibernate<Disciplina> implements DisciplinaRepositorio, Serializable {
+public class DisciplinaDAO extends GenericDAOHibernate<Disciplina> implements DisciplinaRepositorio {
 
 	private static final long serialVersionUID = 1L;
 
-	private EntityManager entityManager;
+	private final EntityManager entityManager;
 
 	@Inject
 	public DisciplinaDAO(EntityManager entityManager) {
