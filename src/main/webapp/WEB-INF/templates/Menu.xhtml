@@ -16,10 +16,17 @@
 				<p:link href="/disciplina.xhtml"><i class="fa  fa-fw  fa-book"></i>Disciplinas</p:link>
 			</li>
 			<li class="#{view.viewId eq '/turma.xhtml' ? 'is-selected' : ''}">
-				<p:link href="/turma.xhtml"><i class="fa  fa-fw  fa-users"></i>Turma</p:link>
+				<p:link href="/turma.xhtml"><i class="fa  fa-fw  fa-users"></i>Turmas</p:link>
 			</li>
 			<li class="#{view.viewId eq '/usuario.xhtml' ? 'is-selected' : ''}">
-				<p:link href="/usuario.xhtml"><i class="fa  fa-fw  fa-user"></i>Usuário</p:link>
+				<p:link href="/usuario.xhtml"><i class="fa  fa-fw  fa-user"></i>Usuários</p:link>
+			</li>
+			<li>
+				<h:form>
+					<p:commandLink action="#{loginBean.efetuarLogout}">
+						<i class="fa fa-fw fa-sign-out"></i>Logout
+					</p:commandLink>
+				</h:form>
 			</li>
 		</ul>
 	</nav>

@@ -55,6 +55,13 @@ public class LoginBean implements Serializable {
 		return outcome;
 	}
 
+	public String efetuarLogout() {
+		logado = false;
+		usuario = new Usuario();
+
+		return "login?faces-redirect=true";
+	}
+
 	public Usuario getUsuario() {
 		return usuario;
 	}
