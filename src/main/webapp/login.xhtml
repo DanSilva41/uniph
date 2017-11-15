@@ -34,7 +34,7 @@
 					<p:outputLabel value="Login:" for="login" />
 					<p:inputText id="login" required="true"
 						requiredMessage="Digite o seu login!"
-						/>
+						value="#{loginBean.usuario.login}"/>
 
 					<p:outputLabel value="Senha:" for="senha" />
 					<p:password id="senha" required="true"
@@ -42,7 +42,7 @@
 						value="#{loginBean.usuario.senha}" />
 
 					<p:commandButton value="Efetuar Login"
-						 ajax="false" />
+						action="#{loginBean.efetuarLogin()}" ajax="false" />
 				</p:panelGrid>
 			</p:fieldset>
 		</h:form>

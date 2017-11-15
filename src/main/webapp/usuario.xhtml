@@ -55,27 +55,27 @@
 						 style="margin-top: 10px" 
 						 emptyMessage="Nenhum usuário cadastrado.">
 				
-				<p:column headerText="#" styleClass="ui-grid-col-1">
+				<p:column headerText="#">
 					<h:outputText value="#{usuario.id}" />
 				</p:column>
 				
-				<p:column headerText="Nome" styleClass="ui-grid-col-2">
+				<p:column headerText="Nome">
 					<h:outputText value="#{usuario.nomeCompleto}" />
 				</p:column>
 				
-				<p:column headerText="Login" styleClass="ui-grid-col-2">
+				<p:column headerText="Login">
 					<h:outputText value="#{usuario.login}" />
 				</p:column>
 				
-				<p:column headerText="E-mail" styleClass="ui-grid-col-3">
+				<p:column headerText="E-mail">
 					<h:outputText value="#{usuario.email}" />
 				</p:column>
 				
-				<p:column headerText="Senha" styleClass="ui-grid-col-2">
+				<p:column headerText="Senha">
 					<h:outputText value="#{usuario.senha}" />
 				</p:column>
 				
-				<p:column styleClass="ui-grid-col-1">
+				<p:column>
 					<f:facet name="header">
 						<i class="fa fa-pencil"></i>
 					</f:facet>
@@ -86,7 +86,7 @@
 					</p:commandLink>
 				</p:column>
 				
-				<p:column headerText=" " styleClass="ui-grid-col-1">
+				<p:column>
 					<f:facet name="header">
 						<i class="fa fa-trash"></i>
 					</f:facet>
