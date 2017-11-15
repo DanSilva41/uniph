@@ -30,6 +30,7 @@ public class AlunoBean implements Serializable {
 
 	private Date dataUtilCadastro = new Date();
 	private Date dataUtilNascimento;
+	private String filtro;
 
 	public void salvar() {
 		boolean edicao = aluno.getId() != null;
@@ -59,8 +60,13 @@ public class AlunoBean implements Serializable {
 		FacesContext.getCurrentInstance().addMessage(null, msg);
 	}
 
+	public void filtrar() {
+		this.alunos = alunoService.filtrarPorPalavraChave(filtro);
+	}
+
 	public void limpar() {
 		this.aluno = new Aluno();
+		this.dataUtilNascimento = null;
 	}
 
 	public Collection<Aluno> getAlunos() {
@@ -102,6 +108,14 @@ public class AlunoBean implements Serializable {
 
 	public void setAluno(Aluno aluno) {
 		this.aluno = aluno;
+	}
+
+	public String getFiltro() {
+		return filtro;
+	}
+
+	public void setFiltro(String filtro) {
+		this.filtro = filtro;
 	}
 
 }

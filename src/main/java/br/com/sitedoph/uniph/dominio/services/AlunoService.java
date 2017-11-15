@@ -38,4 +38,8 @@ public class AlunoService implements Serializable {
 		return repo.salvarOuAtualizar(aluno);
 	}
 
+	public List<Aluno> filtrarPorPalavraChave(String filtro) {
+		return repo.filtrarPorPalavraChave(filtro);
+	}
+
 }

@@ -8,13 +8,15 @@ import br.com.sitedoph.uniph.dominio.entidades.Aluno;
 public interface AlunoRepositorio extends Serializable {
 
 	Aluno buscarPorId(Long id);
-	
+
 	Aluno buscarPorCPF(String cpf);
-	
+
 	List<Aluno> buscarTodos();
-	
+
 	void excluir(Aluno aluno);
-	
+
 	Aluno salvarOuAtualizar(Aluno aluno);
+
+	List<Aluno> filtrarPorPalavraChave(String filtro);
 
 }
