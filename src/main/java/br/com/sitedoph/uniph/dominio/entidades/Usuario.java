@@ -16,9 +16,6 @@ import org.hibernate.validator.constraints.NotBlank;
 @Table(name = "TB_USUARIO")
 public class Usuario implements Serializable {
 
-	/**
-	 * The Constant serialVersionUID
-	 */
 	private static final long serialVersionUID = -162222018784333347L;
 
 	/**
