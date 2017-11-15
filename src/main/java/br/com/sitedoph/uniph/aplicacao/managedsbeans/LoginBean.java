@@ -2,8 +2,8 @@ package br.com.sitedoph.uniph.aplicacao.managedsbeans;
 
 import java.io.Serializable;
 
+import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
-import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
@@ -12,7 +12,7 @@ import br.com.sitedoph.uniph.dominio.entidades.Usuario;
 import br.com.sitedoph.uniph.dominio.services.UsuarioService;
 
 @Named
-@ViewScoped
+@SessionScoped
 public class LoginBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
