@@ -3,6 +3,7 @@ package br.com.sitedoph.uniph.aplicacao.managedsbeans;
 import java.io.Serializable;
 
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -27,7 +28,6 @@ public class LoginBean implements Serializable {
 	public String efetuarLogin() {
 		String outcome = "login";
 
-		// VERIFICAR existência do usuário
 		Usuario existente = usuarioService.buscarPorLoginESenha(usuario.getLogin(), usuario.getSenha());
 
 		if (existente != null && existente.getId() != null) {
@@ -37,7 +37,7 @@ public class LoginBean implements Serializable {
 
 			String uri = request.getRequestURI();
 
-			uri = uri.replaceAll("/uniph", "");
+			uri = uri.replace("/uniph/", "");
 			uri = uri.replace(".xhtml", "");
 
 			if (uri.equals("login")) {
@@ -47,9 +47,13 @@ public class LoginBean implements Serializable {
 			outcome = uri + "?faces-redirect=true";
 
 			setLogado(true);
+
 		} else {
 			usuario = new Usuario();
 			setLogado(false);
+
+			FacesMessage msg = new FacesMessage("Usuário inexistente!");
+			FacesContext.getCurrentInstance().addMessage(null, msg);
 		}
 
 		return outcome;
