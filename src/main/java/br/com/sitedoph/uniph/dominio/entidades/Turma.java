@@ -1,5 +1,6 @@
 package br.com.sitedoph.uniph.dominio.entidades;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -29,11 +30,11 @@ public class Turma {
 
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "TB_TURMA_ALUNO", joinColumns = @JoinColumn(name = "id_turma"), inverseJoinColumns = @JoinColumn(name = "id_aluno"))
-	private List<Aluno> alunos;
+	private List<Aluno> alunos = new ArrayList<>();
 
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "TB_TURMA_DISCIPLINA", joinColumns = @JoinColumn(name = "id_turma"), inverseJoinColumns = @JoinColumn(name = "id_disciplina"))
-	private List<Disciplina> disciplinas;
+	private List<Disciplina> disciplinas = new ArrayList<>();
 
 	public Integer getId() {
 		return id;

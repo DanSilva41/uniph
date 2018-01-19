@@ -25,9 +25,9 @@ public class TurmaDAO extends GenericDAOHibernate<Turma> implements TurmaReposit
 	@Override
 	public List<Turma> filtrarPorPalavraChave(String filtro) {
 
-		Query query = entityManager.createQuery(
-				"SELECT a FROM Turma a " + "INNER JOIN a.disciplinas d" + "WHERE " + "lower(a.horario) LIKE :filtro OR "
-						+ "lower(a.descricao) LIKE :filtro OR " + "lower(d.descricao) LIKE :filtro ");
+		Query query = entityManager.createQuery("SELECT t FROM Turma t " + "INNER JOIN t.disciplinas d " + "WHERE "
+				+ "lower(t.horario) LIKE :filtro OR " + "lower(t.descricao) LIKE :filtro OR "
+				+ "lower(d.descricao) LIKE :filtro ");
 
 		query.setParameter("filtro", "%" + filtro.toLowerCase() + "%");
 

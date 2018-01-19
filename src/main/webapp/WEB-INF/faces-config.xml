@@ -15,5 +15,12 @@
 	<lifecycle>
 		<phase-listener>br.com.sitedoph.uniph.aplicacao.listeners.AutorizadorListener</phase-listener>
 	</lifecycle>
+	
+	<converter>
+		<description>Configurando converter para PickList</description>
+		<converter-id>pickListConverter</converter-id>
+		<converter-class> br.com.sitedoph.uniph.aplicacao.util.PickListConverter</converter-class>
+	</converter>
+	
 
 </faces-config>

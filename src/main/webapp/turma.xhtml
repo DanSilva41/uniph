@@ -18,41 +18,43 @@
 					columnClasses="ui-grid-col-2, ui-grid-col-4, ui-grid-col-2, ui-grid-col-4">
 
 					<p:outputLabel value="Descrição:" for="descricao" />
-					<p:inputText id="descricao"
-						value="#{turmaBean.turma.descricao}" />
+					<p:inputText id="descricao" value="#{turmaBean.turma.descricao}" />
 
 					<p:outputLabel value="Dias da Semana" for="dias" />
-					<p:inputText id="dias"
-						value="#{turmaBean.turma.diasDaSemana}" />
+					<p:inputText id="dias" value="#{turmaBean.turma.diasDaSemana}" />
 
 					<p:outputLabel value="Horário" for="horario" />
-					<p:inputText id="horario"
-						value="#{turmaBean.turma.horario}" />
+					<p:inputText id="horario" value="#{turmaBean.turma.horario}" />
 
 				</p:panelGrid>
 
 			</div>
-			
+
 			<br/>
-			
+
 			<p:outputLabel for="disciplinas-select" value="Disciplinas:" />
-			<p:selectManyCheckbox id="disciplinas-select" value="#{turmaBean.turma.disciplinas}" layout="responsive" columns="4">
+			<p:selectManyCheckbox id="disciplinas-select"
+				value="#{turmaBean.turma.disciplinas}" layout="responsive"
+				columns="4" converter="#{disciplinaConverter}">
 				<f:selectItems value="#{turmaBean.disciplinas}" var="disciplina"
-								itemLabel="#{disciplina.descricao}" itemValue="#{disciplina}"/>
+					itemLabel="#{disciplina.descricao}" itemValue="#{disciplina}" />
 			</p:selectManyCheckbox>
-			
-			<br/>
-			
-			<p:outputLabel for="alunos-select" value="Alunos:"/>
-			<p:selectManyCheckbox id="alunos-select" value="#{turmaBean.turma.alunos}" layout="responsive" columns="4">
-				<f:selectItems value="#{turmaBean.alunos}" var="aluno"
-								itemLabel="#{aluno.nomeCompleto}" itemValue="#{aluno}"/>
-			</p:selectManyCheckbox>
+
+			<br />
+
+			<p:outputLabel for="alunos-select" value="Alunos:" />
+			<p:pickList id="alunos-select" value="#{turmaBean.dualListAlunos}"
+				var="aluno" itemLabel="#{aluno.nomeCompleto}" itemValue="#{aluno}"
+				converter="pickListConverter" />
+
+			<f:facet name="sourceCaption">Todos os alunos</f:facet>
+			<f:facet name="targetCaption">Relacionados</f:facet>
 
 			<p:toolbar style="margin-top: 20px; margin-bottom: 40px">
 				<p:toolbarGroup>
 					<p:commandButton value="Salvar" action="#{turmaBean.salvar}"
-						process="@this panel-grid-turma alunos-select disciplinas-select" update="@form" />
+						process="@this panel-grid-turma alunos-select disciplinas-select"
+						update="@form" />
 
 					<p:commandButton actionListener="#{turmaBean.limpar}"
 						value="Limpar" update="panel-grid-turma" process="@this"
@@ -74,17 +76,15 @@
 							value="#{turmaBean.filtro}" />
 					</div>
 					<div class="ui-grid-col-1" style="padding-left: 20px;">
-						<p:commandButton value="Filtrar"
-							action="#{turmaBean.filtrar}" process="@this filtro"
-							update="@form" />
+						<p:commandButton value="Filtrar" action="#{turmaBean.filtrar}"
+							process="@this filtro" update="@form" />
 					</div>
 				</div>
 			</div>
 
 			<p:dataTable id="turmas-table" widgetVar="turmas-table"
 				value="#{turmaBean.turmas}" var="turma" reflow="true"
-				style="text-align: center"
-				emptyMessage="Nenhuma turma cadastrada.">
+				style="text-align: center" emptyMessage="Nenhuma turma cadastrada.">
 
 				<p:column headerText="#" style="width: 20px;">
 					<h:outputText value="#{turma.id}" />
@@ -101,17 +101,18 @@
 				<p:column headerText="Horário">
 					<h:outputText value="#{turma.horario}" />
 				</p:column>
-				
+
 				<p:column headerText="Disciplinas">
-					<p:dataList value="#{turma.disciplinas}" var="disciplina" type="ordered" style="border: 0px;"
-										emptyMessage="Nenhuma Disciplina Cadastrada">
+					<p:dataList value="#{turma.disciplinas}" var="disciplina"
+						type="ordered" style="border: 0px;"
+						emptyMessage="Nenhuma Disciplina Cadastrada">
 						<h:outputText value="#{disciplina.descricao}" />
 					</p:dataList>
 				</p:column>
-				
+
 				<p:column headerText="Alunos">
-					<p:dataList value="#{turma.alunos}" var="aluno" type="ordered" style="border: 0px;"
-										emptyMessage="Nenhum Aluno Cadastrado">
+					<p:dataList value="#{turma.alunos}" var="aluno" type="ordered"
+						style="border: 0px;" emptyMessage="Nenhum Aluno Cadastrado">
 						<h:outputText value="#{aluno.nomeCompleto}" />
 					</p:dataList>
 				</p:column>
@@ -120,7 +121,8 @@
 					<f:facet name="header">
 						<i class="fa fa-pencil"></i>
 					</f:facet>
-					<p:commandLink immediate="true" process="@this" update="@form">
+					<p:commandLink immediate="true" process="@this" update="@form"
+						actionListener="#{turmaBean.prepararPickList(turma)}">
 						<i class="fa fa-pencil"></i>
 						<f:setPropertyActionListener target="#{turmaBean.turma}"
 							value="#{turma}" />
@@ -131,8 +133,8 @@
 					<f:facet name="header">
 						<i class="fa fa-trash"></i>
 					</f:facet>
-					<p:commandLink action="#{turmaBean.remover(turma)}"
-						process="@form" update="@form" immediate="true">
+					<p:commandLink action="#{turmaBean.remover(turma)}" process="@form"
+						update="@form" immediate="true">
 						<i class="fa fa-trash"></i>
 						<p:confirm header="Confirmação de Exclusão"
 							message="Você tem certeza que quer excluir esse turma?"
