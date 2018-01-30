@@ -6,10 +6,12 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -19,7 +21,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Turma {
 
 	@Id
-	@GeneratedValue
+	@SequenceGenerator(name = "tb_turma_id_seq", sequenceName = "tb_turma_id_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tb_turma_id_seq")
 	private Integer id;
 
 	@NotEmpty(message = "Preencha a descrição!")

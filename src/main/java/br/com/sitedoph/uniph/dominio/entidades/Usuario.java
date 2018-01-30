@@ -5,7 +5,9 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
@@ -22,7 +24,8 @@ public class Usuario implements Serializable {
 	 * The id
 	 */
 	@Id
-	@GeneratedValue
+	@SequenceGenerator(name = "tb_usuario_id_seq", sequenceName = "tb_usuario_id_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tb_usuario_id_seq")
 	private Long id;
 
 	/**

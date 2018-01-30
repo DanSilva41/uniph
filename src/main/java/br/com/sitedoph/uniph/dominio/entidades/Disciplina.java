@@ -4,8 +4,10 @@ import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -15,7 +17,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Disciplina {
 
 	@Id
-	@GeneratedValue
+	@SequenceGenerator(name = "tb_disciplina_id_seq", sequenceName = "tb_disciplina_id_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tb_disciplina_id_seq")
 	private Long id;
 
 	@NotEmpty(message = "Preencha a descrição!")

@@ -7,7 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -21,7 +23,8 @@ import org.hibernate.validator.constraints.br.CPF;
 public class Aluno {
 
 	@Id
-	@GeneratedValue
+	@SequenceGenerator(name = "tb_aluno_id_seq", sequenceName = "tb_aluno_id_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tb_aluno_id_seq")
 	private Long id;
 
 	@NotBlank(message = ": Preencha o nome completo!")

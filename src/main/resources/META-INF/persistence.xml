@@ -3,22 +3,26 @@
 	xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 
-	<persistence-unit name="uniph">
+	<persistence-unit name="uniph" transaction-type="RESOURCE_LOCAL">
+
 		<properties>
-			<!-- **************************** MYSQL ****************************** -->
-			<property name="javax.persistence.driver" value="com.mysql.jdbc.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/uniphDB" />
-			
-			<property name="javax.persistence.jdbc.user" value="root" />
+			<!-- **************************** Postgres ****************************** -->
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/uniphDb"></property>
+			<property name="javax.persistence.jdbc.user" value="postgres" />
 			<property name="javax.persistence.jdbc.password" value="Silva@41" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
 
 			<!-- ****************** Outras configurações ****************** -->
 
 			<!-- Criação automática do Database -->
-			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
 			<!-- Exibição e formatação do SQL no log -->
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.connection.autocommit" value="true" />
+			<property name="hibernate.connection.characterEncoding"
+				value="UTF-8" />
 
 			<property name="hibernate.use_sql_comments" value="true" />
 			<property name="hibernate.jdbc.wrap_result_sets" value="true" />
