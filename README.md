@@ -10,12 +10,12 @@
 ![Maven Version](https://img.shields.io/badge/Maven-3.3-7036ed.svg)
 
 
-'Projeto desenvolvido com [Paulo Henrique Lerbach](https://www.linkedin.com/in/palerique/) em um curso de Java para a Web com JSF e JPA...'
+*'Projeto desenvolvido com [Paulo Henrique Lerbach](https://www.linkedin.com/in/palerique/) em um curso de Java para a Web com JSF e JPA...'*
 
-Aula 01: Criação do projeto, das entidades do domínio, configuração do hibernate;
+**Aula 01**: Criação do projeto, das entidades do domínio, configuração do hibernate;
 
-Aula 02: Criação de toda a estrutura DDD, implementação das validações, conclusão do backend para inicializar o desenvolvimento do frontend;
+**Aula 02**: Criação de toda a estrutura DDD, implementação das validações, conclusão do backend para inicializar o desenvolvimento do frontend;
 
-Aula 03: Construção das páginas da aplicação com Primefaces, usando componentes inteligentes e atualizações AJAX, além de inicializar a refatoração para suporte de injeções de dependências;
+**Aula 03**: Construção das páginas da aplicação com Primefaces, usando componentes inteligentes e atualizações AJAX, além de inicializar a refatoração para suporte de injeções de dependências;
 
-Aula 04: Finalização de todas as telas e funcionalidades ligadas ao backend e também aprimoramento nas navegações com JSF, criando templates e reutilizando código.
+**Aula 04**: Finalização de todas as telas e funcionalidades ligadas ao backend e também aprimoramento nas navegações com JSF, criando templates e reutilizando código.
