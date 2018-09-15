@@ -1,31 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1"
-	xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 
-	<persistence-unit name="uniph" transaction-type="RESOURCE_LOCAL">
+	<persistence-unit name="uniph"
+		transaction-type="RESOURCE_LOCAL">
 
 		<properties>
 			<!-- **************************** Postgres ****************************** -->
-			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/uniphDb"></property>
-			<property name="javax.persistence.jdbc.user" value="postgres" />
-			<property name="javax.persistence.jdbc.password" value="Silva@41" />
-			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+			<property name="javax.persistence.jdbc.driver"
+				value="org.postgresql.Driver" />
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:postgresql://localhost:5432/uniphDB?useSSL=false"></property>
+			<property name="javax.persistence.jdbc.user"
+				value="postgres" />
+			<property name="javax.persistence.jdbc.password"
+				value="Silva@41" />
+			<property name="hibernate.dialect"
+				value="org.hibernate.dialect.PostgreSQLDialect" />
 
 			<!-- ****************** Outras configurações ****************** -->
 
 			<!-- Criação automática do Database -->
-			<!-- property name="hibernate.hbm2ddl.auto" value="update" /> -->
+			<!-- <property name="hibernate.hbm2ddl.auto" value="update" /> -->
 			<!-- Exibição e formatação do SQL no log -->
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />
-			<property name="hibernate.connection.autocommit" value="true" />
+			<property name="hibernate.connection.autocommit"
+				value="true" />
 			<property name="hibernate.connection.characterEncoding"
 				value="UTF-8" />
 
 			<property name="hibernate.use_sql_comments" value="true" />
-			<property name="hibernate.jdbc.wrap_result_sets" value="true" />
+			<property name="hibernate.jdbc.wrap_result_sets"
+				value="true" />
 			<property name="hibernate.hibernate.cache.use_query_cache"
 				value="true" />
 
@@ -35,7 +44,8 @@
 			<property name="hibernate.c3p0.min_size" value="10" />
 			<property name="hibernate.c3p0.max_size" value="50" />
 			<property name="hibernate.c3p0.acquire_increment" value="1" />
-			<property name="hibernate.c3p0.idle_test_period" value="3000" />
+			<property name="hibernate.c3p0.idle_test_period"
+				value="3000" />
 			<property name="hibernate.c3p0.max_statements" value="50" />
 			<property name="hibernate.c3p0.timeout" value="1800" />
 

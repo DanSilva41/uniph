@@ -14,8 +14,46 @@
 		<encoding>UTF-8</encoding>
 		<project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
 		<project.resources.sourceEncoding>${encoding}</project.resources.sourceEncoding>
-		<hibernate.version>5.1.0.Final</hibernate.version>
+		<java.version>1.8</java.version>
+		<hibernate.version>5.2.10.Final</hibernate.version>
+		<weld.version>2.4.7.Final</weld.version>
 	</properties>
+	
+	<build>
+		<finalName>uniph</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.2.0</version>
+				<configuration>
+					<warSourceDirectory>src/main/webapp</warSourceDirectory>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.7.0</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<encoding>${encoding}</encoding>
+				</configuration>
+			</plugin>
+
+			<!-- Travis CI -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.19.1</version>
+				<configuration>
+					<parallel>methods</parallel>
+					<useUnlimitedThreads>true</useUnlimitedThreads>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
 
 	<!-- Dependências do projeto -->
 	<dependencies>
@@ -31,28 +69,34 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>${hibernate.version}</version>
 		</dependency>
-
+		
+		<!-- Hibernate Java 8 Suporte ao Java 8 -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-java8</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		
 		<!-- Validações -->
-
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
-			<version>5.2.3.Final</version>
+			<version>6.0.9.Final</version>
 		</dependency>
 
-		<!-- Weld -->
+		<!-- Weld (implementação do CDI) -->
 		<dependency>
 			<groupId>org.jboss.weld.servlet</groupId>
 			<artifactId>weld-servlet</artifactId>
-			<version>2.4.5.Final</version>
+			<version>${weld.version}</version>
 			<scope>compile</scope>
 		</dependency>
 
-		<!-- Postgres -->
+		<!-- Driver JDBC do Postgres -->
 		<dependency>
-			<groupId>postgresql</groupId>
+			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<version>9.1-901-1.jdbc4</version>
+			<version>42.2.2</version>
 		</dependency>
 
 		<!--Pool de conexões -->
@@ -65,14 +109,14 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-c3p0</artifactId>
-			<version>${hibernate.version}</version>
+			<version>5.3.0.Final</version>
 		</dependency>
 
-		<!--Utilitários -->
+		<!-- Commons Lang 3 - Utilitários do apache -->
 		<dependency>
-			<groupId>commons-lang</groupId>
-			<artifactId>commons-lang</artifactId>
-			<version>2.6</version>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.7</version>
 		</dependency>
 
 		<!-- Testes - Junit -->
@@ -96,33 +140,30 @@
 		</dependency>
 
 		<!-- JSF -->
-
 		<dependency>
 			<groupId>org.glassfish</groupId>
 			<artifactId>javax.faces</artifactId>
-			<version>2.2.9</version>
-			<scope>compile</scope>
+			<version>2.3.3</version>
 		</dependency>
 
+		<!-- Servlet API -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.1.0</version>
-			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.glassfish</groupId>
 			<artifactId>javax.el</artifactId>
-			<version>3.0.0</version>
+			<version>3.0.1-b10</version>
 		</dependency>
 
 		<!--PRIMEFACES -->
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
-			<version>6.1</version>
-			<scope>compile</scope>
+			<version>6.2</version>
 		</dependency>
 
 		<dependency>
@@ -133,42 +174,6 @@
 		</dependency>
 
 	</dependencies>
-
-	<build>
-		<finalName>uniph</finalName>
-		<plugins>
-			<plugin>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>2.6</version>
-				<configuration>
-					<failOnMissingWebXml>false</failOnMissingWebXml>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.5</version>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-					<encoding>${encoding}</encoding>
-				</configuration>
-			</plugin>
-
-			<!-- Travis CI -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.19.1</version>
-				<configuration>
-					<parallel>methods</parallel>
-					<useUnlimitedThreads>true</useUnlimitedThreads>
-				</configuration>
-			</plugin>
-
-		</plugins>
-	</build>
 
 	<repositories>
 		<repository>

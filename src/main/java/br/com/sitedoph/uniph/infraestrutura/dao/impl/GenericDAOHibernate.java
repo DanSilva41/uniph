@@ -21,7 +21,6 @@ public class GenericDAOHibernate<T> implements Serializable {
 	private final EntityManager entityManager;
 
 	public GenericDAOHibernate(Class<T> classe, EntityManager entityManager) {
-
 		CLASSE = classe;
 		this.entityManager = entityManager;
 	}
@@ -54,9 +53,8 @@ public class GenericDAOHibernate<T> implements Serializable {
 
 		Criteria crit = session.createCriteria(CLASSE);
 
-		for (Criterion criterion : criteria) {
+		for (Criterion criterion : criteria)
 			crit.add(criterion);
-		}
 
 		return crit.list();
 	}
@@ -73,9 +71,8 @@ public class GenericDAOHibernate<T> implements Serializable {
 		example.excludeZeroes();
 		example.ignoreCase();
 
-		for (String prop : propriedadesAExcluir) {
+		for (String prop : propriedadesAExcluir)
 			example.excludeProperty(prop);
-		}
 
 		Session session = getHibernateSession();
 

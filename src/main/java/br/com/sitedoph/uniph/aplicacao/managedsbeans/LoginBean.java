@@ -9,6 +9,8 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.log4j.Logger;
+
 import br.com.sitedoph.uniph.dominio.entidades.Usuario;
 import br.com.sitedoph.uniph.dominio.services.UsuarioService;
 
@@ -17,6 +19,7 @@ import br.com.sitedoph.uniph.dominio.services.UsuarioService;
 public class LoginBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	private Logger logger = Logger.getLogger(LoginBean.class);
 
 	private Usuario usuario = new Usuario();
 
@@ -31,7 +34,7 @@ public class LoginBean implements Serializable {
 		Usuario existente = usuarioService.buscarPorLoginESenha(usuario.getLogin(), usuario.getSenha());
 
 		if (existente != null && existente.getId() != null) {
-
+			logger.info("Usuario > " + existente.getLogin() + "<  acessando o sistema");
 			HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext()
 					.getRequest();
 
@@ -40,9 +43,8 @@ public class LoginBean implements Serializable {
 			uri = uri.replace("/uniph/", "");
 			uri = uri.replace(".xhtml", "");
 
-			if (uri.equals("login")) {
+			if (uri.equals("login"))
 				uri = "usuario";
-			}
 
 			outcome = uri + "?faces-redirect=true";
 
