@@ -10,7 +10,6 @@
         <h:form>
 
             <p:messages autoUpdate="false"/>
-            <p:growl autoUpdate="false"/>
 
             <div class="ui-fluid">
                 <p:panelGrid id="panel-grid-aluno" columns="4" layout="grid"
@@ -88,45 +87,46 @@
             <p:dataTable id="alunos-table" value="#{alunoBean.alunos}"
                          var="aluno"
                          reflow="true"
+                         resizableColumns="true"
                          style="text-align: center"
                          emptyMessage="Nenhum aluno cadastrado.">
 
 
-                <p:column headerText="#" style="width: 20px;">
+                <p:column headerText="#" sortBy="#{aluno.id}">
                     <h:outputText value="#{aluno.id}"/>
                 </p:column>
 
-                <p:column headerText="Data de Cadastro" style="width: 70px;">
+                <p:column headerText="Data de Cadastro">
                     <h:outputText value="#{aluno.dataDeCadastro.time}">
                         <f:convertDateTime pattern="dd/MM/yyyy"/>
                     </h:outputText>
                 </p:column>
 
-                <p:column headerText="Nome" style="width: 120px;">
+                <p:column headerText="Nome" sortBy="#{aluno.nomeCompleto}">
                     <h:outputText value="#{aluno.nomeCompleto}"/>
                 </p:column>
                 
-                <p:column headerText="Sexo" style="width: 90px;">
+                <p:column headerText="Sexo" sortBy="#{aluno.sexo}">
                 	<h:outputText value="#{aluno.sexo}" />
                 </p:column>
 
-                <p:column headerText="CPF">
+                <p:column headerText="CPF" sortBy="#{aluno.cpf}">
                     <h:outputText value="#{aluno.cpf}"/>
                 </p:column>
 
-                <p:column headerText="RG">
+                <p:column headerText="RG" sortBy="#{aluno.rg}">
                     <h:outputText value="#{aluno.rg}"/>
                 </p:column>
 
-                <p:column headerText="E-mail" style="width: 120px;">
+                <p:column headerText="E-mail" sortBy="#{aluno.email}">
                     <h:outputText value="#{aluno.email}"/>
                 </p:column>
 
-                <p:column headerText="Telefone">
+                <p:column headerText="Telefone" sortBy="#{aluno.telefone}">
                     <h:outputText value="#{aluno.telefone}"/>
                 </p:column>
 
-                <p:column headerText="Data de Nascimento" style="width: 70px;">
+                <p:column headerText="Data de Nascimento">
                     <h:outputText value="#{aluno.dataDeNascimento.time}">
                         <f:convertDateTime pattern="dd/MM/yyyy"/>
                     </h:outputText>
