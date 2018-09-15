@@ -18,7 +18,7 @@
 		<hibernate.version>5.2.10.Final</hibernate.version>
 		<weld.version>2.4.7.Final</weld.version>
 	</properties>
-	
+
 	<build>
 		<finalName>uniph</finalName>
 		<plugins>
@@ -52,6 +52,26 @@
 				</configuration>
 			</plugin>
 
+			<!-- CodeCov -->
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.7.9</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>report</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -69,14 +89,14 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>${hibernate.version}</version>
 		</dependency>
-		
+
 		<!-- Hibernate Java 8 Suporte ao Java 8 -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-java8</artifactId>
 			<version>${hibernate.version}</version>
 		</dependency>
-		
+
 		<!-- Validações -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
