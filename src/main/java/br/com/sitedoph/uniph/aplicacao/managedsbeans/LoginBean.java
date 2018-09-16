@@ -9,7 +9,8 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import br.com.sitedoph.uniph.dominio.entidades.Usuario;
 import br.com.sitedoph.uniph.dominio.services.UsuarioService;
@@ -19,7 +20,7 @@ import br.com.sitedoph.uniph.dominio.services.UsuarioService;
 public class LoginBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private Logger logger = Logger.getLogger(LoginBean.class);
+	private static final Logger log = LoggerFactory.getLogger(LoginBean.class);
 
 	private Usuario usuario = new Usuario();
 
@@ -34,7 +35,7 @@ public class LoginBean implements Serializable {
 		Usuario existente = usuarioService.buscarPorLoginESenha(usuario.getLogin(), usuario.getSenha());
 
 		if (existente != null && existente.getId() != null) {
-			logger.info("Usuario > " + existente.getLogin() + "<  acessando o sistema");
+			log.warn("Usuario > {} <  acessando o sistema", existente.getLogin());
 			HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext()
 					.getRequest();
 

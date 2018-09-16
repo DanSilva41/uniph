@@ -2,11 +2,11 @@
 
 [![Build Status](https://travis-ci.org/DanSilva41/uniph.svg?branch=%232-create-repositories)](https://travis-ci.org/DanSilva41/uniph)
 ![Java Version](https://img.shields.io/badge/Java-1.8-red.svg)
-![JSF Version](https://img.shields.io/badge/JSF-2.2.9-blue.svg)
-![PrimeFaces Version](https://img.shields.io/badge/PrimeFaces-6.1-blue.svg)
+![JSF Version](https://img.shields.io/badge/JSF-2.3.3-blue.svg)
+![PrimeFaces Version](https://img.shields.io/badge/PrimeFaces-6.2-blue.svg)
 ![JPA Version](https://img.shields.io/badge/JPA-2.1-orange.svg)
-![Hibernate Version](https://img.shields.io/badge/Hibernate-5.1.0--Final-orange.svg)
-![CDI Version](https://img.shields.io/badge/CDI-2.0-4286f4.svg)
+![Hibernate Version](https://img.shields.io/badge/Hibernate-5.2.10--Final-orange.svg)
+![CDI Version](https://img.shields.io/badge/CDI-2.4-7286f4.svg)
 ![Maven Version](https://img.shields.io/badge/Maven-3.3-7036ed.svg)
 
 
