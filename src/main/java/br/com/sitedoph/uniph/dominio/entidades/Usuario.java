@@ -15,7 +15,7 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
-@Table(name = "TB_USUARIO")
+@Table(name = "TB_USUARIO", schema = "dominio")
 public class Usuario implements Serializable {
 
 	private static final long serialVersionUID = -162222018784333347L;

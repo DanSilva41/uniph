@@ -1,6 +1,6 @@
 package br.com.sitedoph.uniph.dominio.entidades;
 
-import java.util.Calendar;
+import java.time.LocalDate;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -10,17 +10,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.br.CPF;
 
+import br.com.sitedoph.uniph.aplicacao.util.config.Formatador;
+
 @Entity
-@Table(name = "TB_PROFESSOR")
+@Table(name = "TB_PROFESSOR", schema = "dominio")
 public class Professor {
+
+	public Professor() {
+		this.dataDeCadastro = LocalDate.now(Formatador.getZoneId());
+	}
 
 	@Id
 	@SequenceGenerator(name = "tb_professor_id_seq", sequenceName = "tb_professor_id_seq", allocationSize = 1)
@@ -40,8 +44,7 @@ public class Professor {
 	@Email(message = "Endereço de e-mail inválido")
 	private String email;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	private Calendar dataCadastro;
+	private LocalDate dataDeCadastro;
 
 	@Column(length = 5000)
 	private String curriculo;
@@ -86,12 +89,12 @@ public class Professor {
 		this.email = email;
 	}
 
-	public Calendar getDataCadastro() {
-		return dataCadastro;
+	public LocalDate getDataDeCadastro() {
+		return dataDeCadastro;
 	}
 
-	public void setDataCadastro(Calendar dataCadastro) {
-		this.dataCadastro = dataCadastro;
+	public void setDataDeCadastro(LocalDate dataDeCadastro) {
+		this.dataDeCadastro = dataDeCadastro;
 	}
 
 	public String getCurriculo() {
@@ -107,7 +110,7 @@ public class Professor {
 		return "[PROFESSOR]:" + (id != null ? "\nID = " + id + ";" : "")
 				+ (nomeCompleto != null ? "\nNome = " + nomeCompleto + ";" : "")
 				+ (cpf != null ? "\nCPF = " + cpf + ";" : "")
-				+ (dataCadastro != null ? "\nDt Cadastro = " + dataCadastro + ";" : "")
+				+ (dataDeCadastro != null ? "\nDt Cadastro = " + dataDeCadastro + ";" : "")
 				+ (telefone != null ? "\nTelefone = " + telefone + ";" : "")
 				+ (email != null ? "\nE-mail = " + email + ";" : "")
 				+ (curriculo != null ? "\nCurrículo = " + curriculo + ";" : "");

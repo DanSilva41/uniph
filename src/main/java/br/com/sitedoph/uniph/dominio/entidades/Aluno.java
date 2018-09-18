@@ -1,6 +1,6 @@
 package br.com.sitedoph.uniph.dominio.entidades;
 
-import java.util.Calendar;
+import java.time.LocalDate;
 import java.util.Objects;
 
 import javax.persistence.Entity;
@@ -11,16 +11,20 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.br.CPF;
 
+import br.com.sitedoph.uniph.aplicacao.util.config.Formatador;
+
 @Entity
-@Table(name = "TB_ALUNO")
+@Table(name = "TB_ALUNO", schema = "dominio")
 public class Aluno {
+
+	public Aluno() {
+		this.dataDeCadastro = LocalDate.now(Formatador.getZoneId());
+	}
 
 	@Id
 	@SequenceGenerator(name = "tb_aluno_id_seq", sequenceName = "tb_aluno_id_seq", allocationSize = 1)
@@ -36,11 +40,9 @@ public class Aluno {
 	@NotBlank(message = ": Preencha o CPF!")
 	private String cpf;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	private Calendar dataDeNascimento;
+	private LocalDate dataDeNascimento;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	private Calendar dataDeCadastro;
+	private LocalDate dataDeCadastro;
 
 	private String telefone;
 
@@ -83,19 +85,19 @@ public class Aluno {
 		this.cpf = cpf;
 	}
 
-	public Calendar getDataDeNascimento() {
+	public LocalDate getDataDeNascimento() {
 		return dataDeNascimento;
 	}
 
-	public void setDataDeNascimento(Calendar dataDeNascimento) {
+	public void setDataDeNascimento(LocalDate dataDeNascimento) {
 		this.dataDeNascimento = dataDeNascimento;
 	}
 
-	public Calendar getDataDeCadastro() {
+	public LocalDate getDataDeCadastro() {
 		return dataDeCadastro;
 	}
 
-	public void setDataDeCadastro(Calendar dataDeCadastro) {
+	public void setDataDeCadastro(LocalDate dataDeCadastro) {
 		this.dataDeCadastro = dataDeCadastro;
 	}
 
