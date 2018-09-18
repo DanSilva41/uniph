@@ -11,8 +11,9 @@ import org.primefaces.model.DualListModel;
 import br.com.sitedoph.uniph.dominio.entidades.Aluno;
 
 @FacesConverter(value = "pickListConverter")
-public class PickListConverter implements Converter {
+public class PickListConverter implements Converter<Object> {
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Object getAsObject(FacesContext arg0, UIComponent arg1, String arg2) {
 		Object ret = null;
