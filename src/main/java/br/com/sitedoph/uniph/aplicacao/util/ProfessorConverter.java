@@ -17,32 +17,30 @@ import br.com.sitedoph.uniph.dominio.services.ProfessorService;
  *
  */
 @Named("professorConverter")
-public class ProfessorConverter implements Converter {
+public class ProfessorConverter implements Converter<Object> {
 
 	@Inject
 	private ProfessorService professorService;
 
 	@Override
 	public Object getAsObject(FacesContext fc, UIComponent uic, String value) {
-		if (value != null && value.trim().length() > 0) {
+		if (value != null && value.trim().length() > 0)
 			try {
 				return professorService.buscarPorId(Long.parseLong(value));
 			} catch (NumberFormatException e) {
 				throw new ConverterException(
 						new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro de Conversão", "Professor Inexistente."));
 			}
-		} else {
+		else
 			return null;
-		}
 	}
 
 	@Override
 	public String getAsString(FacesContext fc, UIComponent uic, Object object) {
-		if (object != null && object instanceof Professor) {
+		if (object != null && object instanceof Professor)
 			return String.valueOf(((Professor) object).getId());
-		} else {
+		else
 			return null;
-		}
 	}
 
 }

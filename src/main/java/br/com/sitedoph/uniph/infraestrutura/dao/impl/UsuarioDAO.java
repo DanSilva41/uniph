@@ -29,11 +29,10 @@ public class UsuarioDAO extends GenericDAOHibernate<Usuario> implements UsuarioR
 
 		List<Usuario> list = buscarPorExemplo(exemplo);
 
-		if (list != null && !list.isEmpty()) {
+		if (list != null && !list.isEmpty())
 			return list.get(0);
-		} else {
+		else
 			return null;
-		}
 	}
 
 }

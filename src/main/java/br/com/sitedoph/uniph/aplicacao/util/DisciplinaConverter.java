@@ -17,7 +17,7 @@ import br.com.sitedoph.uniph.dominio.services.DisciplinaService;
  *
  */
 @Named("disciplinaConverter")
-public class DisciplinaConverter implements Converter {
+public class DisciplinaConverter implements Converter<Object> {
 
 	@Inject
 	DisciplinaService disciplinaService;
