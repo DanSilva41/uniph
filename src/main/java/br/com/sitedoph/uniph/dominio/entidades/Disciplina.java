@@ -13,7 +13,7 @@ import javax.persistence.Table;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-@Table(name = "TB_DISCIPLINA")
+@Table(name = "TB_DISCIPLINA", schema = "dominio")
 public class Disciplina {
 
 	@Id

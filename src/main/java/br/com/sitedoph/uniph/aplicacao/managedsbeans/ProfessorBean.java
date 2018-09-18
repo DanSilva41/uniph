@@ -2,7 +2,6 @@ package br.com.sitedoph.uniph.aplicacao.managedsbeans;
 
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
@@ -10,8 +9,6 @@ import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-
-import org.apache.commons.lang.time.DateUtils;
 
 import br.com.sitedoph.uniph.dominio.entidades.Professor;
 import br.com.sitedoph.uniph.dominio.services.ProfessorService;
@@ -28,25 +25,21 @@ public class ProfessorBean implements Serializable {
 	private Professor professor = new Professor();
 	private List<Professor> professores;
 
-	private Date dataUtilCadastro = new Date();
 	private String filtro;
 
 	public void salvar() {
 
 		boolean edicao = professor.getId() != null;
 
-		professor.setDataCadastro(DateUtils.toCalendar(dataUtilCadastro));
-
 		professorService.salvarOuAtualizar(professor);
 		limpar();
 		professores = professorService.buscarTodos();
 
 		FacesMessage msg;
-		if (edicao) {
+		if (edicao)
 			msg = new FacesMessage("Professor alterado com sucesso!");
-		} else {
+		else
 			msg = new FacesMessage("Professor cadastrado com sucesso!");
-		}
 		FacesContext.getCurrentInstance().addMessage(null, msg);
 	}
 
@@ -67,11 +60,6 @@ public class ProfessorBean implements Serializable {
 	}
 
 	public Professor getProfessor() {
-
-		if (professor.getDataCadastro() != null) {
-			dataUtilCadastro = professor.getDataCadastro().getTime();
-		}
-
 		return professor;
 	}
 
@@ -80,24 +68,13 @@ public class ProfessorBean implements Serializable {
 	}
 
 	public Collection<Professor> getProfessores() {
-
-		if (professores == null) {
+		if (professores == null)
 			professores = professorService.buscarTodos();
-		}
-
 		return professores;
 	}
 
 	public void setProfessores(List<Professor> professores) {
 		this.professores = professores;
-	}
-
-	public Date getDataUtilCadastro() {
-		return dataUtilCadastro;
-	}
-
-	public void setDataUtilCadastro(Date dataUtilCadastro) {
-		this.dataUtilCadastro = dataUtilCadastro;
 	}
 
 	public String getFiltro() {

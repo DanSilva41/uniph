@@ -34,9 +34,11 @@
 
 					<p:outputLabel value="Data de Cadastro" for="dataCadastro" />
 					<p:calendar id="dataCadastro"
-						value="#{professorBean.dataUtilCadastro}" pattern="dd/MM/yyyy"
-						navigator="true" yearRange="c-120:c" locale="pt_BR"
-						disabled="true" />
+						value="#{professorBean.professor.dataDeCadastro}"
+						pattern="dd/MM/yyyy" navigator="true" yearRange="c-120:c"
+						locale="pt_BR" disabled="true">
+						<f:convertDateTime type="localDate" pattern="dd/MM/yyyy" />
+					</p:calendar>
 
 				</p:panelGrid>
 			</div>
@@ -45,7 +47,8 @@
 				<div class="ui-grid-row">
 					<div class="ui-grid-col-12">
 						<p:textEditor id="editor" widgetVar="editorWidget"
-							value="#{professorBean.professor.curriculo}" placeholder="Biografia do(a) professor(a)... Escreva aqui">
+							value="#{professorBean.professor.curriculo}"
+							placeholder="Biografia do(a) professor(a)... Escreva aqui">
 						</p:textEditor>
 					</div>
 				</div>
@@ -113,8 +116,8 @@
 				</p:column>
 
 				<p:column headerText="Data de Cadastro" style="width: 70px;">
-					<h:outputText value="#{professor.dataCadastro.time}">
-						<f:convertDateTime pattern="dd/MM/yyyy" />
+					<h:outputText value="#{professor.dataDeCadastro}">
+						<f:convertDateTime type="localDateTime" pattern="dd/MM/yyyy" />
 					</h:outputText>
 				</p:column>
 

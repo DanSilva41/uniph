@@ -18,7 +18,7 @@ import javax.persistence.Table;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-@Table(name = "TB_TURMA")
+@Table(name = "TB_TURMA", schema = "dominio")
 public class Turma {
 
 	@Id
