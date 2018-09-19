@@ -47,6 +47,7 @@ public class GenericDAOHibernate<T> implements Serializable {
 		entityManager.remove(entidade);
 	}
 
+	@SuppressWarnings({ "deprecation", "unchecked" })
 	public List<T> buscarPorCriteria(Criterion... criteria) {
 
 		Session session = getHibernateSession();
@@ -63,6 +64,7 @@ public class GenericDAOHibernate<T> implements Serializable {
 		return (Session) entityManager.getDelegate();
 	}
 
+	@SuppressWarnings({ "deprecation", "unchecked" })
 	public List<T> buscarPorExemplo(T exemplo, String... propriedadesAExcluir) {
 
 		Example example = Example.create(exemplo);

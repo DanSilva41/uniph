@@ -12,6 +12,7 @@ public class UsuarioDAO extends GenericDAOHibernate<Usuario> implements UsuarioR
 
 	private static final long serialVersionUID = 1L;
 
+	@SuppressWarnings("unused")
 	private final EntityManager entityManager;
 
 	@Inject

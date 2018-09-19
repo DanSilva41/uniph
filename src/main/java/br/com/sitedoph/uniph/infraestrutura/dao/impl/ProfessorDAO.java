@@ -21,6 +21,7 @@ public class ProfessorDAO extends GenericDAOHibernate<Professor> implements Prof
 		this.entityManager = entityManager;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Professor> filtrarPorPalavraChave(String filtro) {
 
@@ -30,9 +31,7 @@ public class ProfessorDAO extends GenericDAOHibernate<Professor> implements Prof
 				+ "lower(a.telefone) LIKE :filtro OR " + "lower(a.dataCadastro) LIKE :filtro");
 		query.setParameter("filtro", "%" + filtro.toLowerCase() + "%");
 
-		List<Professor> resultado = query.getResultList();
-
-		return resultado;
+		return query.getResultList();
 	}
 
 }

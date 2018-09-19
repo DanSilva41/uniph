@@ -22,6 +22,7 @@ public class TurmaDAO extends GenericDAOHibernate<Turma> implements TurmaReposit
 		this.entityManager = entityManager;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Turma> filtrarPorPalavraChave(String filtro) {
 
@@ -31,9 +32,6 @@ public class TurmaDAO extends GenericDAOHibernate<Turma> implements TurmaReposit
 
 		query.setParameter("filtro", "%" + filtro.toLowerCase() + "%");
 
-		List<Turma> resultado = query.getResultList();
-
-		return resultado;
+		return query.getResultList();
 	}
-
 }

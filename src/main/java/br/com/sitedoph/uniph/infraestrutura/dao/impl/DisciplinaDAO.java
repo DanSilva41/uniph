@@ -21,6 +21,7 @@ public class DisciplinaDAO extends GenericDAOHibernate<Disciplina> implements Di
 		this.entityManager = entityManager;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Disciplina> filtrarPorPalavraChave(String filtro) {
 
@@ -29,9 +30,7 @@ public class DisciplinaDAO extends GenericDAOHibernate<Disciplina> implements Di
 						+ "lower(a.descricao) LIKE :filtro OR " + "lower(a.professor) LIKE :filtro");
 		query.setParameter("filtro", "%" + filtro.toLowerCase() + "%");
 
-		List<Disciplina> resultado = query.getResultList();
-
-		return resultado;
+		return query.getResultList();
 	}
 
 }

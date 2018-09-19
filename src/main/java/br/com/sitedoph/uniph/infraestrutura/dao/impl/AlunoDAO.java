@@ -26,6 +26,7 @@ public class AlunoDAO extends GenericDAOHibernate<Aluno> implements AlunoReposit
 		return null;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Aluno> filtrarPorPalavraChave(String filtro) {
 
@@ -36,9 +37,7 @@ public class AlunoDAO extends GenericDAOHibernate<Aluno> implements AlunoReposit
 						+ "lower(a.dataDeCadastro) LIKE :filtro OR " + "lower(a.dataDeNascimento) LIKE :filtro");
 		query.setParameter("filtro", "%" + filtro.toLowerCase() + "%");
 
-		List<Aluno> resultado = query.getResultList();
-
-		return resultado;
+		return query.getResultList();
 	}
 
 }
