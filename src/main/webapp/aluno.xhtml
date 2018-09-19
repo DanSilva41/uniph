@@ -6,11 +6,9 @@
 	template="/WEB-INF/templates/Layout.xhtml">
 	<ui:define name="content">
 		<h1 class="uniph-titulo-pagina">Aluno</h1>
-
 		<h:form>
-
 			<p:messages autoUpdate="false" />
-
+			
 			<div class="ui-fluid">
 				<p:panelGrid id="panel-grid-aluno" columns="4" layout="grid"
 					style="margin-top: 20px" styleClass="panelgrid-noborder"
@@ -24,7 +22,6 @@
 
 					<p:outputLabel value="Sexo:" for="sexo" />
 					<p:selectOneRadio id="sexo" value="#{alunoBean.aluno.sexo}">
-
 						<f:selectItem itemLabel="Masculino" itemValue="MASCULINO" />
 						<f:selectItem itemLabel="Feminino" itemValue="FEMININO" />
 					</p:selectOneRadio>
@@ -49,12 +46,12 @@
 					<p:inputText id="email" value="#{alunoBean.aluno.email}" />
 
 					<p:outputLabel value="Data de Cadastro" for="dataCadastro" />
-					<p:calendar id="dataCadastro" value="#{alunoBean.aluno.dataDeCadastro}"
-						pattern="dd/MM/yyyy" navigator="true" yearRange="c-120:c"
-						locale="pt_BR" disabled="true">
+					<p:calendar id="dataCadastro"
+						value="#{alunoBean.aluno.dataDeCadastro}" pattern="dd/MM/yyyy"
+						navigator="true" yearRange="c-120:c" locale="pt_BR"
+						disabled="true">
 						<f:convertDateTime type="localDate" pattern="dd/MM/yyyy" />
 					</p:calendar>
-
 				</p:panelGrid>
 			</div>
 
@@ -68,7 +65,6 @@
 						style="margin-right:20px;">
 						<p:resetInput target="panel-grid-aluno" />
 					</p:commandButton>
-
 				</p:toolbarGroup>
 			</p:toolbar>
 
@@ -93,41 +89,32 @@
 				var="aluno" reflow="true" resizableColumns="true"
 				style="text-align: center" emptyMessage="Nenhum aluno cadastrado.">
 
-
 				<p:column headerText="#" sortBy="#{aluno.id}">
 					<h:outputText value="#{aluno.id}" />
 				</p:column>
-
 				<p:column headerText="Data de Cadastro">
 					<h:outputText value="#{aluno.dataDeCadastro}">
 						<f:convertDateTime type="localDateTime" pattern="dd/MM/yyyy" />
 					</h:outputText>
 				</p:column>
-
 				<p:column headerText="Nome" sortBy="#{aluno.nomeCompleto}">
 					<h:outputText value="#{aluno.nomeCompleto}" />
 				</p:column>
-
 				<p:column headerText="Sexo" sortBy="#{aluno.sexo}">
 					<h:outputText value="#{aluno.sexo}" />
 				</p:column>
-
 				<p:column headerText="CPF" sortBy="#{aluno.cpf}">
 					<h:outputText value="#{aluno.cpf}" />
 				</p:column>
-
 				<p:column headerText="RG" sortBy="#{aluno.rg}">
 					<h:outputText value="#{aluno.rg}" />
 				</p:column>
-
 				<p:column headerText="E-mail" sortBy="#{aluno.email}">
 					<h:outputText value="#{aluno.email}" />
 				</p:column>
-
 				<p:column headerText="Telefone" sortBy="#{aluno.telefone}">
 					<h:outputText value="#{aluno.telefone}" />
 				</p:column>
-
 				<p:column headerText="Data de Nascimento">
 					<h:outputText value="#{aluno.dataDeNascimento}">
 						<f:convertDateTime type="localDateTime" pattern="dd/MM/yyyy" />
@@ -144,7 +131,6 @@
 							value="#{aluno}" />
 					</p:commandLink>
 				</p:column>
-
 				<p:column style="width: 20px;">
 					<f:facet name="header">
 						<i class="fa fa-trash"></i>
@@ -157,7 +143,6 @@
 							icon="ui-icon-alert" />
 					</p:commandLink>
 				</p:column>
-
 			</p:dataTable>
 
 			<p:confirmDialog global="true" showEffect="fade" hideEffect="fade"
@@ -169,5 +154,4 @@
 			</p:confirmDialog>
 		</h:form>
 	</ui:define>
-
 </ui:composition>

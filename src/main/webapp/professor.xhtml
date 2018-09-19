@@ -6,9 +6,7 @@
 	template="/WEB-INF/templates/Layout.xhtml">
 	<ui:define name="content">
 		<h1 class="uniph-titulo-pagina">Professor</h1>
-
 		<h:form>
-
 			<p:messages autoUpdate="false" />
 			<p:growl autoUpdate="false" />
 
@@ -39,7 +37,6 @@
 						locale="pt_BR" disabled="true">
 						<f:convertDateTime type="localDate" pattern="dd/MM/yyyy" />
 					</p:calendar>
-
 				</p:panelGrid>
 			</div>
 
@@ -64,7 +61,6 @@
 						process="@this" style="margin-right:20px;">
 						<p:resetInput target="panel-grid-professor" />
 					</p:commandButton>
-
 				</p:toolbarGroup>
 			</p:toolbar>
 
@@ -90,31 +86,24 @@
 				style="text-align: center"
 				emptyMessage="Nenhum professor cadastrado.">
 
-
 				<p:column headerText="#" style="width: 20px;">
 					<h:outputText value="#{professor.id}" />
 				</p:column>
-
 				<p:column headerText="Nome">
 					<h:outputText value="#{professor.nomeCompleto}" />
 				</p:column>
-
 				<p:column headerText="CPF" style="width: 120px;">
 					<h:outputText value="#{professor.cpf}" />
 				</p:column>
-
 				<p:column headerText="E-mail" style="width: 140px;">
 					<h:outputText value="#{professor.email}" />
 				</p:column>
-
 				<p:column headerText="Telefone" style="width: 120px;">
 					<h:outputText value="#{professor.telefone}" />
 				</p:column>
-
 				<p:column headerText="Currículo" styleClass="singleLine">
 					<h:outputText escape="false" value="#{professor.curriculo}" />
 				</p:column>
-
 				<p:column headerText="Data de Cadastro" style="width: 70px;">
 					<h:outputText value="#{professor.dataDeCadastro}">
 						<f:convertDateTime type="localDateTime" pattern="dd/MM/yyyy" />
@@ -131,7 +120,6 @@
 							value="#{professor}" />
 					</p:commandLink>
 				</p:column>
-
 				<p:column style="width: 20px;">
 					<f:facet name="header">
 						<i class="fa fa-trash"></i>
@@ -155,5 +143,4 @@
 			</p:confirmDialog>
 		</h:form>
 	</ui:define>
-
 </ui:composition>

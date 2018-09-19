@@ -4,16 +4,14 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
 	template="/WEB-INF/templates/Layout.xhtml">
-
 	<ui:define name="content">
 		<h1 class="uniph-titulo-pagina">Usuários</h1>
-
 		<h:form>
 			<p:messages autoUpdate="false" />
 			<p:growl autoUpdate="false" />
 
 			<p:fieldset id="fieldset_usuarios" legend="Novo" toggleable="true"
-				toggleSpeed="500" collapsed="true">
+				toggleSpeed="500">
 				<div class="ui-fluid">
 					<p:panelGrid id="panel-grid-usuario" columns="4" layout="grid"
 						style="margin-top: 20px" styleClass="panelgrid-noborder"
@@ -31,7 +29,6 @@
 
 						<p:outputLabel value="Senha" for="senha" />
 						<p:password id="senha" value="#{usuarioBean.usuario.senha}" />
-
 					</p:panelGrid>
 				</div>
 
@@ -57,25 +54,21 @@
 						<h:outputText value="#{usuario.id}" />
 					</center>
 				</p:column>
-
 				<p:column headerText="Nome" style="width: 30%;">
 					<center>
 						<h:outputText value="#{usuario.nomeCompleto}" />
 					</center>
 				</p:column>
-
 				<p:column headerText="Login" style="width: 20%;">
 					<center>
 						<h:outputText value="#{usuario.login}" />
 					</center>
 				</p:column>
-
 				<p:column headerText="E-mail" style="width: 30%;">
 					<center>
 						<h:outputText value="#{usuario.email}" />
 					</center>
 				</p:column>
-
 				<p:column headerText="Senha" style="width: 20%;">
 					<center>
 						<h:outputText value="#{usuario.senha}" />
@@ -88,7 +81,6 @@
 							<i class="fa fa-pencil"></i>
 						</center>
 					</f:facet>
-
 					<p:commandLink immediate="true" process="@this" update="@form">
 						<center>
 							<i class="fa fa-pencil"></i>
@@ -97,7 +89,6 @@
 							target="#{usuarioBean.usuario}" />
 					</p:commandLink>
 				</p:column>
-
 				<p:column style="width: 20px;">
 					<f:facet name="header">
 						<i class="fa fa-trash"></i>
@@ -113,7 +104,6 @@
 							icon="ui-icon-alert" />
 					</p:commandLink>
 				</p:column>
-
 			</p:dataTable>
 
 			<p:confirmDialog global="true" showEffect="fade" hideEffect="fade"
@@ -123,8 +113,6 @@
 				<p:commandButton value="Não" type="button"
 					styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
 			</p:confirmDialog>
-
 		</h:form>
 	</ui:define>
-
 </ui:composition>

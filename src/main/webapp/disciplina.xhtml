@@ -6,9 +6,7 @@
 	template="/WEB-INF/templates/Layout.xhtml">
 	<ui:define name="content">
 		<h1 class="uniph-titulo-pagina">Disciplina</h1>
-
 		<h:form>
-
 			<p:messages autoUpdate="false" />
 			<p:growl autoUpdate="false" />
 
@@ -34,9 +32,7 @@
 							var="professor" itemLabel="#{professor.nomeCompleto}"
 							itemValue="#{professor}" />
 					</p:selectOneMenu>
-					
 				</p:panelGrid>
-
 			</div>
 
 			<p:toolbar style="margin-top: 20px; margin-bottom: 40px">
@@ -49,7 +45,6 @@
 						style="margin-right:20px;">
 						<p:resetInput target="panel-grid-disciplina" />
 					</p:commandButton>
-
 				</p:toolbarGroup>
 			</p:toolbar>
 
@@ -79,15 +74,12 @@
 				<p:column headerText="#" style="width: 20px;">
 					<h:outputText value="#{disciplina.id}" />
 				</p:column>
-
 				<p:column headerText="Descrição">
 					<h:outputText value="#{disciplina.descricao}" />
 				</p:column>
-
 				<p:column headerText="Carga Horária" style="width: 20%;">
 					<h:outputText value="#{disciplina.cargaHoraria}" />
 				</p:column>
-
 				<p:column headerText="Professor">
 					<h:outputText value="#{disciplina.professor.nomeCompleto}" />
 				</p:column>
@@ -102,7 +94,6 @@
 							value="#{disciplina}" />
 					</p:commandLink>
 				</p:column>
-
 				<p:column style="width: 20px;">
 					<f:facet name="header">
 						<i class="fa fa-trash"></i>
@@ -115,7 +106,6 @@
 							icon="ui-icon-alert" />
 					</p:commandLink>
 				</p:column>
-
 			</p:dataTable>
 
 			<p:confirmDialog global="true" showEffect="fade" hideEffect="fade"
@@ -127,5 +117,4 @@
 			</p:confirmDialog>
 		</h:form>
 	</ui:define>
-
 </ui:composition>

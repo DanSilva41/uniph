@@ -6,9 +6,7 @@
 	template="/WEB-INF/templates/Layout.xhtml">
 	<ui:define name="content">
 		<h1 class="uniph-titulo-pagina">Turma</h1>
-
 		<h:form>
-
 			<p:messages autoUpdate="false" />
 			<p:growl autoUpdate="false" />
 
@@ -25,13 +23,9 @@
 
 					<p:outputLabel value="Horário" for="horario" />
 					<p:inputText id="horario" value="#{turmaBean.turma.horario}" />
-
 				</p:panelGrid>
-
 			</div>
-
-			<br/>
-
+			<br />
 			<p:outputLabel for="disciplinas-select" value="Disciplinas:" />
 			<p:selectManyCheckbox id="disciplinas-select"
 				value="#{turmaBean.turma.disciplinas}" layout="responsive"
@@ -39,9 +33,7 @@
 				<f:selectItems value="#{turmaBean.disciplinas}" var="disciplina"
 					itemLabel="#{disciplina.descricao}" itemValue="#{disciplina}" />
 			</p:selectManyCheckbox>
-
 			<br />
-
 			<p:outputLabel for="alunos-select" value="Alunos:" />
 			<p:pickList id="alunos-select" value="#{turmaBean.dualListAlunos}"
 				var="aluno" itemLabel="#{aluno.nomeCompleto}" itemValue="#{aluno}"
@@ -61,7 +53,6 @@
 						style="margin-right:20px;">
 						<p:resetInput target="panel-grid-turma" />
 					</p:commandButton>
-
 				</p:toolbarGroup>
 			</p:toolbar>
 
@@ -89,19 +80,15 @@
 				<p:column headerText="#" style="width: 20px;">
 					<h:outputText value="#{turma.id}" />
 				</p:column>
-
 				<p:column headerText="Descrição">
 					<h:outputText value="#{turma.descricao}" />
 				</p:column>
-
 				<p:column headerText="Dias da Semana" style="width: 20%;">
 					<h:outputText value="#{turma.diasDaSemana}" />
 				</p:column>
-
 				<p:column headerText="Horário">
 					<h:outputText value="#{turma.horario}" />
 				</p:column>
-
 				<p:column headerText="Disciplinas">
 					<p:dataList value="#{turma.disciplinas}" var="disciplina"
 						type="ordered" style="border: 0px;"
@@ -109,7 +96,6 @@
 						<h:outputText value="#{disciplina.descricao}" />
 					</p:dataList>
 				</p:column>
-
 				<p:column headerText="Alunos">
 					<p:dataList value="#{turma.alunos}" var="aluno" type="ordered"
 						style="border: 0px;" emptyMessage="Nenhum Aluno Cadastrado">
@@ -128,7 +114,6 @@
 							value="#{turma}" />
 					</p:commandLink>
 				</p:column>
-
 				<p:column style="width: 20px;">
 					<f:facet name="header">
 						<i class="fa fa-trash"></i>
@@ -141,7 +126,6 @@
 							icon="ui-icon-alert" />
 					</p:commandLink>
 				</p:column>
-
 			</p:dataTable>
 
 			<p:confirmDialog global="true" showEffect="fade" hideEffect="fade"
@@ -153,5 +137,4 @@
 			</p:confirmDialog>
 		</h:form>
 	</ui:define>
-
 </ui:composition>
