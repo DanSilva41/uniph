@@ -36,16 +36,15 @@ public class LoginBean implements Serializable {
 		if (existente != null && existente.getId() != null) {
 			log.warn("Usuario > {} <  acessando o sistema", existente.getLogin());
 			setLogado(true);
-
+			return "usuarios";
 		} else {
 			usuario = new Usuario();
 			setLogado(false);
 
 			FacesMessage msg = new FacesMessage("Usuário inexistente!");
 			FacesContext.getCurrentInstance().addMessage(null, msg);
+			return "login";
 		}
-
-		return "usuarios";
 	}
 
 	public String efetuarLogout() {
