@@ -7,7 +7,6 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,19 +35,6 @@ public class LoginBean implements Serializable {
 
 		if (existente != null && existente.getId() != null) {
 			log.warn("Usuario > {} <  acessando o sistema", existente.getLogin());
-			HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext()
-					.getRequest();
-
-			String uri = request.getRequestURI();
-
-			uri = uri.replace("/uniph/", "");
-			uri = uri.replace(".xhtml", "");
-
-			if (uri.equals("login"))
-				uri = "usuario";
-
-			outcome = uri + "?faces-redirect=true";
-
 			setLogado(true);
 
 		} else {
@@ -59,7 +45,7 @@ public class LoginBean implements Serializable {
 			FacesContext.getCurrentInstance().addMessage(null, msg);
 		}
 
-		return outcome;
+		return "usuarios";
 	}
 
 	public String efetuarLogout() {

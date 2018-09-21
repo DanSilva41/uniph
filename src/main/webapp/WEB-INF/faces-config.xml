@@ -22,5 +22,46 @@
 		<converter-class> br.com.sitedoph.uniph.aplicacao.util.PickListConverter</converter-class>
 	</converter>
 	
-
+	<!-- Login -->
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>login</from-outcome>
+			<to-view-id>login.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<!-- Alunos -->
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>alunos</from-outcome>
+			<to-view-id>pages/aluno.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<!-- Disciplinas -->
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>disciplinas</from-outcome>
+			<to-view-id>pages/disciplina.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<!-- Professores -->
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>professores</from-outcome>
+			<to-view-id>pages/professor.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<!-- Turmas -->
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>turmas</from-outcome>
+			<to-view-id>pages/turma.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<!-- Usuários -->
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>usuarios</from-outcome>
+			<to-view-id>pages/usuario.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 </faces-config>
