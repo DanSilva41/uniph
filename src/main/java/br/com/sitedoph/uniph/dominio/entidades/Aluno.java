@@ -3,14 +3,7 @@ package br.com.sitedoph.uniph.dominio.entidades;
 import java.time.LocalDate;
 import java.util.Objects;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
@@ -19,7 +12,7 @@ import org.hibernate.validator.constraints.br.CPF;
 import br.com.sitedoph.uniph.aplicacao.util.config.Formatador;
 
 @Entity
-@Table(name = "TB_ALUNO", schema = "dominio")
+@Table(name = "TB_ALUNO")
 public class Aluno {
 
 	public Aluno() {
@@ -32,6 +25,7 @@ public class Aluno {
 	private Long id;
 
 	@NotBlank(message = ": Preencha o nome completo!")
+	@Column(name = "nome_completo")
 	private String nomeCompleto;
 
 	private String rg;
@@ -40,8 +34,10 @@ public class Aluno {
 	@NotBlank(message = ": Preencha o CPF!")
 	private String cpf;
 
+	@Column(name = "data_de_nascimento")
 	private LocalDate dataDeNascimento;
 
+	@Column(name = "data_de_cadastro")
 	private LocalDate dataDeCadastro;
 
 	private String telefone;

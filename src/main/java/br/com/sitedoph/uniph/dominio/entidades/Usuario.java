@@ -14,7 +14,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "TB_USUARIO", schema = "dominio")
+@Table(name = "TB_USUARIO")
 public class Usuario implements Serializable {
 
 	private static final long serialVersionUID = -162222018784333347L;
@@ -31,7 +31,8 @@ public class Usuario implements Serializable {
 	 * The nome completo
 	 */
 	@NotBlank(message = "O nome não pode estar vazio")
-	@Size(min = 5, message = "O nome deve ter ao" + "menos 5 caracteres ")
+	@Size(min = 5, max = 100, message = "O nome deve ter ao" + "menos 5 caracteres ")
+	@Column(name = "nome_completo", length = 100)
 	private String nomeCompleto;
 
 	/**

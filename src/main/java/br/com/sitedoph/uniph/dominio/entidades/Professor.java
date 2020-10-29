@@ -19,7 +19,7 @@ import org.hibernate.validator.constraints.br.CPF;
 import br.com.sitedoph.uniph.aplicacao.util.config.Formatador;
 
 @Entity
-@Table(name = "TB_PROFESSOR", schema = "dominio")
+@Table(name = "TB_PROFESSOR")
 public class Professor {
 
 	public Professor() {
@@ -33,6 +33,7 @@ public class Professor {
 
 	@NotEmpty(message = "Preencha o nome completo!")
 	@Size(min = 5)
+	@Column(name = "nome_completo")
 	private String nomeCompleto;
 
 	@CPF(message = "CPF inválido")
@@ -44,6 +45,7 @@ public class Professor {
 	@Email(message = "Endereço de e-mail inválido")
 	private String email;
 
+	@Column(name = "data_de_cadastro")
 	private LocalDate dataDeCadastro;
 
 	@Column(length = 5000)

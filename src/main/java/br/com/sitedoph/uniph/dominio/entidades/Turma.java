@@ -3,21 +3,11 @@ package br.com.sitedoph.uniph.dominio.entidades;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
-@Table(name = "TB_TURMA", schema = "dominio")
+@Table(name = "TB_TURMA")
 public class Turma {
 
 	@Id
@@ -28,7 +18,9 @@ public class Turma {
 	@NotEmpty(message = "Preencha a descrição!")
 	private String descricao;
 
+	@Column(name = "dias_da_semanda")
 	private String diasDaSemana;
+
 	private String horario;
 
 	@ManyToMany(cascade = CascadeType.ALL)

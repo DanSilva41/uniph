@@ -24,7 +24,7 @@ public class AutorizadorListener implements PhaseListener {
 		LoginBean loginBean = contexto.getApplication().evaluateExpressionGet(contexto, "#{loginBean}",
 				LoginBean.class);
 
-		if (!loginBean.isLogado()) {
+		if (loginBean != null && !loginBean.isLogado()) {
 			NavigationHandler gerente = contexto.getApplication().getNavigationHandler();
 
 			gerente.handleNavigation(contexto, null, "login?faces-redirect=true");

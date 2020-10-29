@@ -12,12 +12,12 @@
 			<property name="javax.persistence.jdbc.driver"
 				value="org.postgresql.Driver" />
 			<property name="javax.persistence.jdbc.url"
-				value="jdbc:postgresql://localhost:5432/uniphDB?useSSL=false"></property>
+				value="jdbc:postgresql://localhost:5432/uniphdb?useSSL=false"></property>
 			<property name="javax.persistence.jdbc.user"
 				value="postgres" />
 			<property name="javax.persistence.jdbc.password"
 				value="Silva@41" />
-			<property name="hibernate.default_schema" value="dominio"/>
+			<property name="hibernate.default_schema" value="public"/>
 			<property name="hibernate.dialect"
 				value="org.hibernate.dialect.PostgreSQLDialect" />
 
